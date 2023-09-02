@@ -141,7 +141,7 @@ async function startDevTest() {
                 document.getElementById("redButton").style.display = "none";
                 clearInterval(sessionIntervalTest);
                 clearTimeout(sessionTimerTest);
-                resolve("doneDevTest");
+                resolve("doneTest2");
                 reset_airplane();
                 reset_blueCar();
                 reset_redCar();
