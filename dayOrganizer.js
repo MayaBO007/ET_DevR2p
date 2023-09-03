@@ -17,7 +17,7 @@ function moveToDay() {
             } else if (typeof studySessionData === "undefined" || studySessionData.doneInstructions === "") {
                 platform.goToUrl("instructions/instructions.html");
                 studySessionData.doneInstructions = "stratIns";
-            } else if (studySessionData.doneInstructions === "doneInstructions") {
+            } else if ((studySessionData.doneInstructions === "doneInstructions") || (studySessionData.subId == "64f418d4d2c8fb647d0adda3")) {
                 if (
                     studySessionData.isDayDone === "done" &&
                     studySessionData.doneTest1 !== "doneTest1" ||
