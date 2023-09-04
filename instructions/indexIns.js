@@ -11,7 +11,9 @@ function timeline() {
             studySessionData.expDaysDate = updatedDates.fullDate;
             studySessionData.startDate = startDate;
             platform.saveSession(studySessionData, true);
-            platform.goToUrl("instructions/questions/Multiple-Choice-Quiz-JavaScript-master/index.html");
+            setTimeout(() => {
+                platform.goToUrl("instructions/questions/Multiple-Choice-Quiz-JavaScript-master/index.html");
+            }, 250);
         }
     }
     goIns();
