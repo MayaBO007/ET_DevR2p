@@ -64,6 +64,7 @@ function timeline() {
                                                     studySessionData.doneTest2 = "doneTest2";
                                                     studySessionData.expDaysDate = updatedDates.fullDate;
                                                     platform.saveSession(studySessionData, true);
+                                                    clearInterval(sessionIntervalTest);
                                                     reset_blueCar()
                                                     reset_redCar()
                                                     sumCorrectFirstPress().then((sum) => {
