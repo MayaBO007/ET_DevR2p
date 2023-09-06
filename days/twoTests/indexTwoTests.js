@@ -29,21 +29,22 @@ function timeline() {
                         if (doneTest1 == "done") {
                             studySessionData.doneTest1 = 'doneTest1';
                             studySessionData.expDaysDate = updatedDates.fullDate;
-                            platform.saveSession(studySessionData, true)
-                            document.getElementById("endDayMsg").style.display = "inline";
-                            document.getElementById("endDayMsg").addEventListener("click", function () {
-                                showWinnings()
-                                setTimeout(() => {
-                                    platform.goToUrl("days/devTest/devTest.html");
-                                }, timeToFive())
-                                setTimeout(() => {
-                                    hideWinnings();
-                                    if (window.matchMedia("(orientation: landscape)").matches) {
-                                        document.getElementById("fiveAM").style.display = "inline";
-                                    } else {
-                                        document.getElementById("fiveAM_hor").style.display = "inline";
-                                    }
-                                }, 10000);
+                            platform.saveSession(studySessionData, true).then(() => {
+                                document.getElementById("endDayMsg").style.display = "inline";
+                                document.getElementById("endDayMsg").addEventListener("click", function () {
+                                    showWinnings()
+                                    setTimeout(() => {
+                                        platform.goToUrl("days/devTest/devTest.html");
+                                    }, timeToFive())
+                                    setTimeout(() => {
+                                        hideWinnings();
+                                        if (window.matchMedia("(orientation: landscape)").matches) {
+                                            document.getElementById("fiveAM").style.display = "inline";
+                                        } else {
+                                            document.getElementById("fiveAM_hor").style.display = "inline";
+                                        }
+                                    }, 10000);
+                                })
                             })
                         }
 

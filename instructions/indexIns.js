@@ -10,10 +10,9 @@ function timeline() {
             studySessionData.doneInstructions = "doneInstructions";
             studySessionData.expDaysDate = updatedDates.fullDate;
             studySessionData.startDate = startDate;
-            platform.saveSession(studySessionData, true);
-            setTimeout(() => {
-                platform.goToUrl("instructions/questions/Multiple-Choice-Quiz-JavaScript-master/index.html");
-            }, 250);
+            platform.saveSession(studySessionData).then(() => {
+                platform.goToUrl("instructions/questions/Multiple-Choice-Quiz-JavaScript-master/index.html")
+            })
         }
     }
     goIns();

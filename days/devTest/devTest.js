@@ -136,15 +136,16 @@ async function startDevTest() {
                 }, 1200);// (Maximal carSpeed)*1000
 
             let sessionTimerTest = setTimeout(function timeCount() {
-                platform.saveSession(responsesDev, false);
-                document.getElementById("blueButton").style.display = "none";
-                document.getElementById("redButton").style.display = "none";
-                clearInterval(sessionIntervalTest);
-                clearTimeout(sessionTimerTest);
-                resolve("doneTest2");
-                reset_airplane();
-                reset_blueCar();
-                reset_redCar();
+                platform.saveSession(responsesDev, false).then(() => {
+                    document.getElementById("blueButton").style.display = "none";
+                    document.getElementById("redButton").style.display = "none";
+                    clearInterval(sessionIntervalTest);
+                    clearTimeout(sessionTimerTest);
+                    resolve("doneTest2");
+                    reset_airplane();
+                    reset_blueCar();
+                    reset_redCar();
+                })
             }, 250000);
             // }, 3000);
         };

@@ -63,17 +63,18 @@ function timeline() {
                                                     document.getElementById("blueButton").style.display = "none";
                                                     studySessionData.doneTest2 = "doneTest2";
                                                     studySessionData.expDaysDate = updatedDates.fullDate;
-                                                    platform.saveSession(studySessionData, true);
-                                                    clearInterval(sessionIntervalTest);
-                                                    reset_blueCar()
-                                                    reset_redCar()
-                                                    sumCorrectFirstPress().then((sum) => {
-                                                        showWinningsEnd(sum);
-                                                        platform.saveSession(totalWins, true);
-                                                        setTimeout(() => {
-                                                            hideWinningsEnd();
-                                                            document.getElementById("endOfGame").style.display = "inline";
-                                                        }, 10000);
+                                                    platform.saveSession(studySessionData, true).then(() => {
+                                                        clearInterval(sessionIntervalTest);
+                                                        reset_blueCar()
+                                                        reset_redCar()
+                                                        sumCorrectFirstPress().then((sum) => {
+                                                            showWinningsEnd(sum);
+                                                            platform.saveSession(totalWins, true);
+                                                            setTimeout(() => {
+                                                                hideWinningsEnd();
+                                                                document.getElementById("endOfGame").style.display = "inline";
+                                                            }, 10000);
+                                                        })
                                                     })
                                                 }
                                             }

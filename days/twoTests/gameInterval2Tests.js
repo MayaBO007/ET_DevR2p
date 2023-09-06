@@ -110,13 +110,14 @@ async function startInterval2Tests() {
         let sessionTimer2test = setTimeout(function timeCount() {
             // document.getElementById("blueButton").style.display = "none";
             // document.getElementById("redButton").style.display = "none";
-            platform.saveSession(responsesTrainingDataThree, false);
-            clearInterval(sessionInterval2Test);
-            clearTimeout(sessionTimer2test);
-            reset_airplane();
-            // reset_redCar();
-            // reset_blueCar();
-            countTimeout1++;
+            platform.saveSession(responsesTrainingDataThree, false).then(() => {
+                clearInterval(sessionInterval2Test);
+                clearTimeout(sessionTimer2test);
+                reset_airplane();
+                // reset_redCar();
+                // reset_blueCar();
+                countTimeout1++;
+            })
             if (countTimeout1 >= 1) {
                 resolve("done1");
                 clearInterval(sessionInterval2Test);
@@ -207,20 +208,21 @@ async function startInterval2Tests2() {
         let sessionTimer2test2 = setTimeout(function timeCount() {
             clearInterval(sessionInterval2Test2);
             clearTimeout(sessionTimer2test2);
-            platform.saveSession(responsesTrainingDataThree, false);
-            reset_airplane();
-            // reset_blueCar();
-            // reset_redCar();
-            countTimeout2++;
-            if (countTimeout2 >= 1) {
-                resolve("done3");
-                clearInterval(sessionInterval2Test2);
-                clearTimeout(sessionTimer2test2);
-            } else {
-                clearInterval(sessionInterval2Test2);
-                clearTimeout(sessionTimer2test2);
+            platform.saveSession(responsesTrainingDataThree, false).then(() => {
                 reset_airplane();
-            }
+                // reset_blueCar();
+                // reset_redCar();
+                countTimeout2++;
+                if (countTimeout2 >= 1) {
+                    resolve("done3");
+                    clearInterval(sessionInterval2Test2);
+                    clearTimeout(sessionTimer2test2);
+                } else {
+                    clearInterval(sessionInterval2Test2);
+                    clearTimeout(sessionTimer2test2);
+                    reset_airplane();
+                }
+            })
         }, 30000);
         // }, 3000);
     });
@@ -301,21 +303,22 @@ async function startInterval2Tests3() {
         let sessionTimer2test3 = setTimeout(function timeCount() {
             clearInterval(sessionInterval2Test3);
             clearTimeout(sessionTimer2test3);
-            platform.saveSession(responsesTrainingDataThree, false);
-            reset_airplane();
-            reset_blueCar();
-            reset_redCar();
-            countTimeout3++;
-            if (countTimeout3 == 1) {
-                resolve("done5");
-                clearInterval(sessionInterval2Test3);
-                clearTimeout(sessionTimer2test3);
+            platform.saveSession(responsesTrainingDataThree, false).then(() => {
                 reset_airplane();
-            } else {
-                clearInterval(sessionInterval2Test3);
-                clearTimeout(sessionTimer2test3);
-                reset_airplane();
-            }
+                reset_blueCar();
+                reset_redCar();
+                countTimeout3++;
+                if (countTimeout3 == 1) {
+                    resolve("done5");
+                    clearInterval(sessionInterval2Test3);
+                    clearTimeout(sessionTimer2test3);
+                    reset_airplane();
+                } else {
+                    clearInterval(sessionInterval2Test3);
+                    clearTimeout(sessionTimer2test3);
+                    reset_airplane();
+                }
+            })
         }, (300000 - (new Date().getTime() - milliseconds)));
         // }, 3000);
     });

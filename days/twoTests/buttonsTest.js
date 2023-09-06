@@ -113,8 +113,9 @@ async function startIntervalButtons() {
             timeoutCountButtons++;
             endButtons = 1;
             if (timeoutCountButtons == 1) {
-                platform.saveSession(responsesButtons, false);
-                resolve("done4");
+                platform.saveSession(responsesButtons, false).then(() => {
+                    resolve("done4");
+                })
             } else {
                 clearInterval(sessionIntervalButtons);
                 clearTimeout(sessionTimerButtons);

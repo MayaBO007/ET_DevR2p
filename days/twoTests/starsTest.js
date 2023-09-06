@@ -127,8 +127,9 @@ async function startIntervalStar() {
             if (timeoutCountStar == 1) {
                 getStarNum().then((starNum) => {
                     howManyStars.push(starNum);
-                    platform.saveSession(responsesStar, false);
-                    resolve("done2");
+                    platform.saveSession(responsesStar, false).then(() => {
+                        resolve("done2");
+                    })
                 });
             } else {
                 clearInterval(sessionIntervalStar);
