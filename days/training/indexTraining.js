@@ -70,6 +70,8 @@ function timeline() {
                     }
                     goTraining();
                 }
+            } else {
+                document.getElementById("endOfGame").style.display = "inline";
             }
         })
     })
