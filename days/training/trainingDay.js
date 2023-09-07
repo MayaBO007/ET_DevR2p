@@ -151,13 +151,14 @@ async function trainingDay() {
                     }, 1200);// (Maximal carSpeed)*1000
 
                 let sessionTimerTrainingDay = setTimeout(function timeCount() {
-                    platform.saveSession(responsesTrainingData, false);
-                    clearInterval(sessionIntervalTrainingDay);
-                    reset_airplane();
-                    document.getElementById("blueButton").style.display = "none";
-                    document.getElementById("redButton").style.display = "none";
-                    resolve("done");
-                    clearTimeout(sessionTimerTrainingDay);
+                    platform.saveSession(responsesTrainingData, false).then(() => {
+                        clearInterval(sessionIntervalTrainingDay);
+                        reset_airplane();
+                        document.getElementById("blueButton").style.display = "none";
+                        document.getElementById("redButton").style.display = "none";
+                        resolve("done");
+                        clearTimeout(sessionTimerTrainingDay);
+                    })
                 }, 300000);
                 // }, 3000);
             }
