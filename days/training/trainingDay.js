@@ -23,7 +23,7 @@ document.getElementById("blueButton").addEventListener("click", function () {
 });
 
 
-
+let saveAttemptTraining = 0;
 let count = 0; // counter for iterations
 // 1=red, 2=blue buttons
 let buttonChoice = null;
@@ -151,14 +151,24 @@ async function trainingDay() {
                     }, 1200);// (Maximal carSpeed)*1000
 
                 let sessionTimerTrainingDay = setTimeout(function timeCount() {
-                    platform.saveSession(responsesTrainingData, false).then(() => {
-                        clearInterval(sessionIntervalTrainingDay);
-                        reset_airplane();
-                        document.getElementById("blueButton").style.display = "none";
-                        document.getElementById("redButton").style.display = "none";
-                        resolve("done");
-                        clearTimeout(sessionTimerTrainingDay);
-                    })
+                    clearInterval(sessionIntervalTrainingDay);
+                    clearTimeout(sessionTimerTrainingDay);
+                    function savingTraining() {
+                        platform.saveSession(responsesTrainingData, false).then(() => {
+                            reset_airplane();
+                            document.getElementById("blueButton").style.display = "none";
+                            document.getElementById("redButton").style.display = "none";
+                            resolve("done");
+                        }).catch(() => {
+                            if (saveAttemptTraining >= 2000) {
+                                document.getElementById("problem").style.display = "inline";
+                            } else {
+                                saveAttemptTraining++;
+                                savingTraining()
+                            }
+                        })
+                    }
+                    savingTraining()
                 }, 300000);
                 // }, 3000);
             }
