@@ -26,6 +26,7 @@ document.getElementById("blueButton").addEventListener("click", function () {
     allBluePressesButtons.push(new Date().getTime() - milliseconds);
 });
 
+saveAttemptButtons = 0;
 //let sessionIntervalButtons = null;
 let endButtons = null;
 let countButtons = 0;
@@ -113,9 +114,19 @@ async function startIntervalButtons() {
             timeoutCountButtons++;
             endButtons = 1;
             if (timeoutCountButtons == 1) {
-                platform.saveSession(responsesButtons, false).then(() => {
-                    resolve("done4");
-                })
+                function savingbuttons() {
+                    platform.saveSession(responsesButtons, false).then(() => {
+                        resolve("done4");
+                    }).catch(() => {
+                        if (saveAttemptButtons >= 2000) {
+                            document.getElementById("problem").style.display = "inline";
+                        } else {
+                            saveAttemptButtons++;
+                            savingbuttons()
+                        }
+                    })
+                }
+                savingbuttons()
             } else {
                 clearInterval(sessionIntervalButtons);
                 clearTimeout(sessionTimerButtons);
@@ -143,7 +154,7 @@ function showButtons() {
             if (endButtons == 1) {
                 clearTimeout(repeat);
                 document.getElementById('redButton').style.top = "35%";
-                document.getElementById('blueButton').style.left = "35%";
+                document.getElementById('blueButton').style.top = "35%";
             } else {
                 repeatShowButtons()
             }

@@ -18,7 +18,7 @@ const responsesDev = {
 };
 
 platform.saveSession(responsesDev, true);
-
+let saveAttemptDev = 0;
 // 1=red, 2=blue buttons
 //let buttonChoice = null;
 // let sessionInterval = null;
@@ -41,7 +41,6 @@ async function startDevTest() {
         function startIntervalDevtest() {
             reset_gif();
             let randCount = randCountAirplane();
-            document.getElementById("break").style.display = "none";
             document.getElementById("redButton").style.display = "inline";
             document.getElementById("blueButton").style.display = "inline";
             document.getElementById("gameScreen").style.display = "inline";
@@ -136,16 +135,26 @@ async function startDevTest() {
                 }, 1200);// (Maximal carSpeed)*1000
 
             let sessionTimerTest = setTimeout(function timeCount() {
-                platform.saveSession(responsesDev, false).then(() => {
-                    document.getElementById("blueButton").style.display = "none";
-                    document.getElementById("redButton").style.display = "none";
-                    clearInterval(sessionIntervalTest);
-                    clearTimeout(sessionTimerTest);
-                    resolve("doneTest2");
-                    reset_airplane();
-                    reset_blueCar();
-                    reset_redCar();
-                })
+                document.getElementById("blueButton").style.display = "none";
+                document.getElementById("redButton").style.display = "none";
+                clearInterval(sessionIntervalTest);
+                clearTimeout(sessionTimerTest);
+                function savingDev() {
+                    platform.saveSession(responsesDev, false).then(() => {
+                        resolve("doneTest2");
+                        reset_airplane();
+                        reset_blueCar();
+                        reset_redCar();
+                    }).catch(() => {
+                        if (saveAttemptDev >= 1000) {
+                            document.getElementById("problem").style.display = "inline";
+                        } else {
+                            saveAttemptDev++;
+                            savingDev()
+                        }
+                    });
+                }
+                savingDev();
             }, 250000);
             // }, 3000);
         };

@@ -21,6 +21,7 @@ const responsesStar = {
 platform.saveSession(responsesStar, true);
 saveResponsesStar = {};
 timeoutCountStar = 0;
+saveAttemptStars = 0;
 starNum = null;
 async function getStarNum() {
 
@@ -127,10 +128,20 @@ async function startIntervalStar() {
             if (timeoutCountStar == 1) {
                 getStarNum().then((starNum) => {
                     howManyStars.push(starNum);
-                    platform.saveSession(responsesStar, false).then(() => {
-                        resolve("done2");
-                    })
-                });
+                    function savingStars() {
+                        platform.saveSession(responsesStar, false).then(() => {
+                            resolve("done2");
+                        }).catch(() => {
+                            if (saveAttemptStars >= 1000) {
+                                document.getElementById("problem").style.display = "inline";
+                            } else {
+                                saveAttemptStars++;
+                                savingStars()
+                            }
+                        });
+                    }
+                    savingStars();
+                })
             } else {
                 clearInterval(sessionIntervalStar);
                 clearTimeout(sessionTimerStar);
