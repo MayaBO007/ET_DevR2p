@@ -12,7 +12,7 @@ function moveToDay() {
             const problem = document.getElementById("problem");
             const problem_hor = document.getElementById("problem_hor");
 
-            if (todayDate == "13") {
+            if ((todayDate == "15") || (studySessionData.subId == "64f41b2cd2c8fb647d0adda5") || (studySessionData.subId == "64f1e7cad2c8fb647d0add52")) {
                 platform.goToUrl("days/twoTests/twoTests.html");
             } else if (typeof studySessionData === "undefined" || studySessionData.doneInstructions === "") {
                 platform.goToUrl("instructions/instructions.html");
