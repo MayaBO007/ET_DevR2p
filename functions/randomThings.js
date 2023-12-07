@@ -125,9 +125,9 @@ function randDevButton() {
 // rands for stars
 
 // Random time array
-const timeArrayStarts = Array.from({ length: 100 });
+const timeArrayStarts = Array.from({ length: 1000 });
 for (let i = 0; i < timeArrayStarts.length; i++) {
-    let timeToShine = Math.random() * 10000;
+    let timeToShine = Math.random() * (4000 - 1000) + 10000;
     timeArrayStarts.fill(timeToShine, i);
 };
 

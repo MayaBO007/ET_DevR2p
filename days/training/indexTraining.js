@@ -33,7 +33,11 @@ function timeline() {
 
             }
 
-            else if (updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) {
+            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (daysMissed.daysMissedNum == null)) {
+                if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
+                    daysMissed.daysMissedNum = 1;
+                    platform.saveSession(daysMissed);
+                }
                 if (0 <= updatedDates.fullDate.getHours() & updatedDates.fullDate.getHours() < 5) {
                     document.getElementById("fiveAM").style.display = "inline";
                     setTimeout(() => {
@@ -65,6 +69,13 @@ function timeline() {
                                         moveToDay();
                                     }, timeToFive())
                                 })
+                            }).catch(() => {
+                                if (saveAttemptTraining >= 2000) {
+                                    document.getElementById("problem").style.display = "inline";
+                                } else {
+                                    saveAttemptTraining++;
+                                    savingTraining()
+                                }
                             })
                         }
 
@@ -79,15 +90,15 @@ function timeline() {
 }
 
 
-    // startDayOne function () {
-    //  return new Promise(resolve => {
+// startDayOne function () {
+//  return new Promise(resolve => {
 
-    //     let savedData = [];
-    //     savedData = platform.getAllSessions();
-    // let getlastData = await getData();
-    // if (getlastData == "gotData") {
-    // studySessionData = savedData[0][savedData[0].length - 1];
-        // resolve("gotData");
+//     let savedData = [];
+//     savedData = platform.getAllSessions();
+// let getlastData = await getData();
+// if (getlastData == "gotData") {
+// studySessionData = savedData[0][savedData[0].length - 1];
+// resolve("gotData");
 
 //     startDayOne();
 

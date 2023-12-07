@@ -9,6 +9,7 @@ function timeline() {
             studySessionData.doneInstructions = "doneInstructions";
             studySessionData.expDaysDate = updatedDates.fullDate;
             studySessionData.startDate = startDate;
+            platform.saveSession(daysMissed);
             platform.saveSession(studySessionData, true).then(() => {
                 platform.goToUrl("instructions/questions/Multiple-Choice-Quiz-JavaScript-master/index.html")
             })

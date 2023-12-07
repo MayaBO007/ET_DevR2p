@@ -8,6 +8,11 @@ async function onloadPics() {
     })
 };
 
+let daysMissedNum = null;
+const daysMissed = {
+    daysMissedNum: daysMissedNum
+};
+
 let now = null;
 function msCount() {
     msIntAll = setInterval(function setTimer() {

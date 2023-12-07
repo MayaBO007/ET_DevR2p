@@ -17,7 +17,11 @@ function timeline() {
                     moveToDay();
                 }, timeToFive());
             }
-            else if (updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {)
+            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (daysMissed.daysMissedNum == null)) {
+                if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
+                    daysMissed.daysMissedNum = 1;
+                    platform.saveSession(daysMissed);
+                }
                 if (0 <= updatedDates.fullDate.getHours() & updatedDates.fullDate.getHours() < 5) {
                     document.getElementById("fiveAM").style.display = "inline";
                     setTimeout(() => {
