@@ -33,7 +33,7 @@ function timeline() {
 
             }
 
-            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (daysMissed.daysMissedNum == null)) {
+            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (daysMissed.daysMissedNum < 1)) {
                 if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
                     daysMissed.daysMissedNum = 1;
                     platform.saveSession(daysMissed);
