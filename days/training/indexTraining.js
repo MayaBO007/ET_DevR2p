@@ -41,7 +41,7 @@ function timeline() {
 
             else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (daysMissedNum < 1)) {
                 if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
-                    daysMissed.daysMissedNum = 1;
+                    daysMissedNum = 1;
                     platform.saveSession(daysMissed);
                 }
                 if (0 <= updatedDates.fullDate.getHours() & updatedDates.fullDate.getHours() < 5) {
