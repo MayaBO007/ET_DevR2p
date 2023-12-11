@@ -6,6 +6,7 @@ function timeline() {
             deleteFromSessionData();
             let updatedDates = updateDates();
             let todayDate = getTodayDate().slice(0, 2);
+            let daysMissed = daysMissed.daysMissedNum
             if (Number(todayDate) === Number(dayDate()) && (studySessionData.isDayDone == "")) {
                 updatedDates.yesterday = updatedDates.yesterdayMinusOne;
                 updatedDates.yesterdayPlusOne = updatedDates.fullDate;
