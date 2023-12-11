@@ -10,6 +10,9 @@ function timeline() {
                 updatedDates.yesterday = updatedDates.yesterdayMinusOne;
                 updatedDates.yesterdayPlusOne = updatedDates.fullDate;
             }
+            console.log("updatedDates.fullDate.getDate():", updatedDates.fullDate.getDate());
+            console.log("updatedDates.yesterdayPlusOne.getDate():", updatedDates.yesterdayPlusOne.getDate());
+            console.log("daysMissed.daysMissedNum:", daysMissed.daysMissedNum);
             if (updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
                 // document.addEventListener("DOMContentLoaded", function () {
                 if (window.matchMedia("(orientation: landscape)").matches) {
@@ -32,6 +35,8 @@ function timeline() {
                 }, timeToFive());
 
             }
+
+
 
             else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (daysMissed.daysMissedNum < 1)) {
                 if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
