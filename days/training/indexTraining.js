@@ -13,7 +13,7 @@ function timeline() {
             }
             console.log("updatedDates.fullDate.getDate():", updatedDates.fullDate.getDate());
             console.log("updatedDates.yesterdayPlusOne.getDate():", updatedDates.yesterdayPlusOne.getDate());
-            console.log("daysMissed.daysMissedNum:", daysMissed.daysMissedNum);
+            console.log("daysMissed.daysMissedNum:", daysMissedNum);
             if (updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
                 // document.addEventListener("DOMContentLoaded", function () {
                 if (window.matchMedia("(orientation: landscape)").matches) {
@@ -39,7 +39,7 @@ function timeline() {
 
 
 
-            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (daysMissed.daysMissedNum < 1)) {
+            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (daysMissedNum < 1)) {
                 if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
                     daysMissed.daysMissedNum = 1;
                     platform.saveSession(daysMissed);
