@@ -39,10 +39,10 @@ function timeline() {
 
 
 
-            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (daysMissedNum < 1)) {
+            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (daysMissedNum[0] != 1)) {
                 if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
                     deleteFromMissingDayData();
-                    daysMissedNum = 1;
+                    daysMissedNum.push(1);
                     platform.saveSession(daysMissed);
                 }
                 if (0 <= updatedDates.fullDate.getHours() & updatedDates.fullDate.getHours() < 5) {
