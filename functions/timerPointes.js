@@ -9,7 +9,7 @@ async function onloadPics() {
 };
 
 const daysMissedNum = [];
-let daysMissing = null;
+let daysMissing = [];
 let findlastIndexM = null;
 let lastTimestampM = null;
 let IndexM = null;
@@ -37,9 +37,12 @@ function findMissingDays() {
     platform.getAllSessions().then((data) => {
         getIndexMissedDays(data).then((IndexM) => {
             daysMissing = data[IndexM].daysMissedNum;
+            if (daysMissing.length > 0) {
+                daysMissing = daysMissing.length - 1;
+            }
         })
     })
-    return daysMissing.length - 1;
+    return daysMissing
 }
 
 let now = null;
