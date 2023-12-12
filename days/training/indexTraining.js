@@ -6,7 +6,7 @@ function timeline() {
             deleteFromSessionData();
             let updatedDates = updateDates();
             let todayDate = getTodayDate().slice(0, 2);
-            let daysMissed = findMissingDays();
+            let daysMissedNum = findMissingDays();
             if (Number(todayDate) === Number(dayDate()) && (studySessionData.isDayDone == "")) {
                 updatedDates.yesterday = updatedDates.yesterdayMinusOne;
                 updatedDates.yesterdayPlusOne = updatedDates.fullDate;
@@ -41,6 +41,7 @@ function timeline() {
 
             else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (daysMissedNum < 1)) {
                 if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
+                    deleteFromMissingDayData();
                     daysMissedNum = 1;
                     platform.saveSession(daysMissed);
                 }

@@ -15,6 +15,7 @@ let IndexM = null;
 const daysMissed = {
     daysMissedNum: daysMissedNum
 };
+
 async function getIndexMissedDays(data) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].hasOwnProperty("daysMissedNum")) {
@@ -193,6 +194,12 @@ function deleteFromSessionData() {
     delete studySessionData._id;
     delete studySessionData.createdAt;
     delete studySessionData.subId;
+}
+
+function deleteFromMissingDayData() {
+    delete daysMissed._id;
+    delete daysMissed.createdAt;
+    delete daysMissed.subId;
 }
 
 function updateDates() {
