@@ -39,7 +39,7 @@ function timeline() {
 
 
 
-            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (daysMissedNum[0] != 1)) {
+            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (daysMissedNum[daysMissedNum.length - 1] != 1)) {
                 if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
                     deleteFromMissingDayData();
                     daysMissedNum.push(1);
