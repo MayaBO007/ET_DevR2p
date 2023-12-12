@@ -32,30 +32,12 @@ async function getIndexMissedDays(data) {
 
 function findMissingDays() {
     platform.getAllSessions().then((data) => {
-        getIndexMissedDays(data).then((indexM) => {
-            daysMissedNum = data[indexM].daysMissedNum;
+        getIndexMissedDays(data).then((IndexM) => {
+            daysMissedNum = data[IndexM].daysMissedNum;
         })
     })
     return daysMissedNum;
 }
-
-async function getIndexMissedDays(data) {
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].hasOwnProperty("daysMissedNum")) {
-            findlastIndex = data[i].createdAt;
-            if (lastTimestamp == null) {
-                lastTimestamp = findlastIndex;
-                indexM = i;
-            } else if (findlastIndex > lastTimestamp) {
-                lastTimestamp = findlastIndex;
-                indexM = i;
-            }
-        }
-    }
-
-    return indexM;
-}
-
 
 let now = null;
 function msCount() {
