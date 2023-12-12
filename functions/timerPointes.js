@@ -39,7 +39,7 @@ function findMissingDays() {
             daysMissing = data[IndexM].daysMissedNum;
         })
     })
-    return daysMissing;
+    return daysMissing.length - 1;
 }
 
 let now = null;
