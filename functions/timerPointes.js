@@ -9,6 +9,8 @@ async function onloadPics() {
 };
 
 let daysMissedNum = null;
+let findlastIndexM = null;
+let lastTimestampM = null;
 let IndexM = null;
 const daysMissed = {
     daysMissedNum: daysMissedNum
@@ -16,12 +18,12 @@ const daysMissed = {
 async function getIndexMissedDays(data) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].hasOwnProperty("daysMissedNum")) {
-            findlastIndex = data[i].createdAt;
-            if (lastTimestamp == null) {
-                lastTimestamp = findlastIndex;
+            findlastIndexM = data[i].createdAt;
+            if (lastTimestampM == null) {
+                lastTimestampM = findlastIndexM;
                 IndexM = i;
-            } else if (findlastIndex > lastTimestamp) {
-                lastTimestamp = findlastIndex;
+            } else if (findlastIndexM > lastTimestampM) {
+                lastTimestampM = findlastIndexM;
                 IndexM = i;
             }
         }
@@ -29,7 +31,6 @@ async function getIndexMissedDays(data) {
 
     return IndexM;
 }
-
 function findMissingDays() {
     platform.getAllSessions().then((data) => {
         getIndexMissedDays(data).then((IndexM) => {
