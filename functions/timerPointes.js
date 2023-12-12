@@ -13,6 +13,7 @@ let daysMissing = [];
 let findlastIndexM = null;
 let lastTimestampM = null;
 let IndexM = null;
+
 const daysMissed = {
     daysMissedNum: daysMissedNum
 };
@@ -30,15 +31,17 @@ async function getIndexMissedDays(data) {
             }
         }
     }
-
     return IndexM;
 }
+
 function findMissingDays() {
     platform.getAllSessions().then((data) => {
         getIndexMissedDays(data).then((IndexM) => {
             daysMissing = data[IndexM].daysMissedNum;
             if (daysMissing.length > 0) {
                 daysMissing = daysMissing[daysMissing.length - 1];
+            } else {
+                daysMissing = 0;
             }
         })
     })
