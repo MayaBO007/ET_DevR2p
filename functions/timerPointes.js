@@ -8,7 +8,7 @@ async function onloadPics() {
     })
 };
 
-let daysMissedNum = [];
+const daysMissedNum = [];
 let findlastIndexM = null;
 let lastTimestampM = null;
 let IndexM = null;
