@@ -38,7 +38,7 @@ function findMissingDays() {
         getIndexMissedDays(data).then((IndexM) => {
             daysMissing = data[IndexM].daysMissedNum;
             if (daysMissing.length > 0) {
-                daysMissing = daysMissing.length - 1;
+                daysMissing = daysMissing[daysMissing.length - 1];
             }
         })
     })
