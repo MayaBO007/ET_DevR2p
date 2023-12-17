@@ -3,97 +3,101 @@ function timeline() {
     platform.getAllSessions().then((data) => {
         getIndexSessionData(data).then((indexI) => {
             studySessionData = data[indexI];
-            deleteFromSessionData();
-            let updatedDates = updateDates();
-            let todayDate = getTodayDate().slice(0, 2);
-            if (Number(todayDate) === Number(dayDate()) && (studySessionData.isDayDone == "")) {
-                updatedDates.yesterday = updatedDates.yesterdayMinusOne;
-                updatedDates.yesterdayPlusOne = updatedDates.fullDate;
-            }
-            console.log("updatedDates.fullDate.getDate():", updatedDates.fullDate.getDate());
-            console.log("updatedDates.yesterdayPlusOne.getDate():", updatedDates.yesterdayPlusOne.getDate());
-            aa = findMissingDays()
-            console.log("daysMissed.daysMissedNum:", aa);
-            console.log("daysMissed.daysMissedNum:", IndexM);
-
-            if (updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
-                // document.addEventListener("DOMContentLoaded", function () {
-                if (window.matchMedia("(orientation: landscape)").matches) {
-                    document.getElementById("fiveAM").style.display = "inline";
-                } else {
-                    document.getElementById("fiveAM_hor").style.display = "inline";
+            getIndexMissedDays(data).then((indexM) => {
+                missingDaysData = data[indexM]
+                missingDays = missingDaysData.daysMissedNum;
+                deleteFromSessionData();
+                let updatedDates = updateDates();
+                let todayDate = getTodayDate().slice(0, 2);
+                if (Number(todayDate) === Number(dayDate()) && (studySessionData.isDayDone == "")) {
+                    updatedDates.yesterday = updatedDates.yesterdayMinusOne;
+                    updatedDates.yesterdayPlusOne = updatedDates.fullDate;
                 }
+                console.log("updatedDates.fullDate.getDate():", updatedDates.fullDate.getDate());
+                console.log("updatedDates.yesterdayPlusOne.getDate():", updatedDates.yesterdayPlusOne.getDate());
+                aa = findMissingDays()
+                console.log("daysMissed.daysMissedNum:", aa);
+                console.log("daysMissed.daysMissedNum:", IndexM);
 
-                // window.addEventListener("orientationchange", function () {
-                //     if (window.matchMedia("(orientation: landscape)").matches) {
-                //         document.getElementById("fiveAM").style.display = "inline";
-                //     } else {
-                //         document.getElementById("fiveAM_hor").style.display = "inline";
-                //     }
-                // });
-                // });
+                if (updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
+                    // document.addEventListener("DOMContentLoaded", function () {
+                    if (window.matchMedia("(orientation: landscape)").matches) {
+                        document.getElementById("fiveAM").style.display = "inline";
+                    } else {
+                        document.getElementById("fiveAM_hor").style.display = "inline";
+                    }
 
-                setTimeout(() => {
-                    moveToDay();
-                }, timeToFive());
+                    // window.addEventListener("orientationchange", function () {
+                    //     if (window.matchMedia("(orientation: landscape)").matches) {
+                    //         document.getElementById("fiveAM").style.display = "inline";
+                    //     } else {
+                    //         document.getElementById("fiveAM_hor").style.display = "inline";
+                    //     }
+                    // });
+                    // });
 
-            }
-
-
-
-            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (findMissingDays() != 1)) {
-                if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
-                    deleteFromMissingDayData();
-                    daysMissedNum.push(1);
-                    platform.saveSession(daysMissed);
-                }
-                if (0 <= updatedDates.fullDate.getHours() & updatedDates.fullDate.getHours() < 5) {
-                    document.getElementById("fiveAM").style.display = "inline";
                     setTimeout(() => {
                         moveToDay();
-                    }, timeToFiveSameDay());
-                } else {
-                    deleteFromSessionData();
-                    let goTraining = async function () {
-                        let isDayDone = await trainingDay();
-                        if (isDayDone == "done") {
-                            clearInterval(sessionIntervalTrainingDay);
-                            let updatedDates = updateDates();
-                            studySessionData.isDayDone = "done";
-                            studySessionData.expDaysDate = updatedDates.fullDate;
-                            platform.saveSession(studySessionData, true).then(() => {
-                                document.getElementById("endDayMsg").style.display = "inline";
-                                document.getElementById("endDayMsg").addEventListener("click", function () {
-                                    showWinnings()
-                                    setTimeout(() => {
-                                        if (window.matchMedia("(orientation: landscape)").matches) {
-                                            hideWinnings();
-                                            document.getElementById("fiveAM").style.display = "inline";
-                                        } else {
-                                            hideWinnings();
-                                            document.getElementById("fiveAM_hor").style.display = "inline";
-                                        }
-                                    }, 10000)
-                                    setTimeout(() => {
-                                        moveToDay();
-                                    }, timeToFive())
-                                })
-                            }).catch(() => {
-                                if (saveAttemptTraining >= 2000) {
-                                    document.getElementById("problem").style.display = "inline";
-                                } else {
-                                    saveAttemptTraining++;
-                                    savingTraining()
-                                }
-                            })
-                        }
+                    }, timeToFive());
 
-                    }
-                    goTraining();
                 }
-            } else {
-                document.getElementById("endOfGame").style.display = "inline";
-            }
+
+
+
+                else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (missingDays != 1)) {
+                    if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
+                        deleteFromMissingDayData();
+                        daysMissedNum.push(1);
+                        platform.saveSession(daysMissed);
+                    }
+                    if (0 <= updatedDates.fullDate.getHours() & updatedDates.fullDate.getHours() < 5) {
+                        document.getElementById("fiveAM").style.display = "inline";
+                        setTimeout(() => {
+                            moveToDay();
+                        }, timeToFiveSameDay());
+                    } else {
+                        deleteFromSessionData();
+                        let goTraining = async function () {
+                            let isDayDone = await trainingDay();
+                            if (isDayDone == "done") {
+                                clearInterval(sessionIntervalTrainingDay);
+                                let updatedDates = updateDates();
+                                studySessionData.isDayDone = "done";
+                                studySessionData.expDaysDate = updatedDates.fullDate;
+                                platform.saveSession(studySessionData, true).then(() => {
+                                    document.getElementById("endDayMsg").style.display = "inline";
+                                    document.getElementById("endDayMsg").addEventListener("click", function () {
+                                        showWinnings()
+                                        setTimeout(() => {
+                                            if (window.matchMedia("(orientation: landscape)").matches) {
+                                                hideWinnings();
+                                                document.getElementById("fiveAM").style.display = "inline";
+                                            } else {
+                                                hideWinnings();
+                                                document.getElementById("fiveAM_hor").style.display = "inline";
+                                            }
+                                        }, 10000)
+                                        setTimeout(() => {
+                                            moveToDay();
+                                        }, timeToFive())
+                                    })
+                                }).catch(() => {
+                                    if (saveAttemptTraining >= 2000) {
+                                        document.getElementById("problem").style.display = "inline";
+                                    } else {
+                                        saveAttemptTraining++;
+                                        savingTraining()
+                                    }
+                                })
+                            }
+
+                        }
+                        goTraining();
+                    }
+                } else {
+                    document.getElementById("endOfGame").style.display = "inline";
+                }
+            })
         })
     })
 }
