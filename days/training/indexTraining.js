@@ -58,7 +58,6 @@ function timeline() {
                         let goTraining = async function () {
                             let isDayDone = await trainingDay();
                             if (isDayDone == "done") {
-                                clearInterval(sessionIntervalTrainingDay);
                                 let updatedDates = updateDates();
                                 studySessionData.isDayDone = "done";
                                 studySessionData.expDaysDate = updatedDates.fullDate;
@@ -66,6 +65,7 @@ function timeline() {
                                     document.getElementById("endDayMsg").style.display = "inline";
                                     document.getElementById("endDayMsg").addEventListener("click", function () {
                                         showWinnings()
+                                        clearInterval(sessionIntervalTrainingDay);
                                         setTimeout(() => {
                                             if (window.matchMedia("(orientation: landscape)").matches) {
                                                 hideWinnings();
