@@ -15,9 +15,7 @@ function timeline() {
                 }
                 console.log("updatedDates.fullDate.getDate():", updatedDates.fullDate.getDate());
                 console.log("updatedDates.yesterdayPlusOne.getDate():", updatedDates.yesterdayPlusOne.getDate());
-                aa = findMissingDays()
-                console.log("daysMissed.daysMissedNum:", aa);
-                console.log("daysMissed.daysMissedNum:", IndexM);
+                console.log("daysMissed.daysMissedNum:", missingDays);
 
                 if (updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
                     // document.addEventListener("DOMContentLoaded", function () {
