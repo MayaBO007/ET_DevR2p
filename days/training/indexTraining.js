@@ -12,7 +12,8 @@ function timeline() {
             }
             console.log("updatedDates.fullDate.getDate():", updatedDates.fullDate.getDate());
             console.log("updatedDates.yesterdayPlusOne.getDate():", updatedDates.yesterdayPlusOne.getDate());
-            console.log("daysMissed.daysMissedNum:", findMissingDays());
+            aa = findMissingDays()
+            console.log("daysMissed.daysMissedNum:", aa);
             console.log("daysMissed.daysMissedNum:", IndexM);
 
             if (updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
