@@ -7,7 +7,7 @@ function timeline() {
             studySessionData = data[indexI];
             deleteFromSessionData();
             let updatedDates = updateDates();
-            if (updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
+            if (updatedDates.fullDate.getDate() == updatedDates.lastGame.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
                 if (window.matchMedia("(orientation: landscape)").matches) {
                     document.getElementById("fiveAM").style.display = "inline";
                 } else {
