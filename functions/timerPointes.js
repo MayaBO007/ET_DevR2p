@@ -230,7 +230,7 @@ function updateDates() {
         yesterday = new Date
         yesterday = yesterday.setDate(yesterday.getDate() - 1);
     }
-    return { fullDate, timeNow, today, yesterday, yesterdayPlusOne, lastGameDate, yesterdayMinusOne }
+    return { fullDate, timeNow, today, yesterday, yesterdayPlusOne, lastGameDate, lastGame }
 }
 
 
