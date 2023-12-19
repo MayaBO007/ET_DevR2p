@@ -39,9 +39,6 @@ function timeline() {
                     }, timeToFive());
 
                 }
-
-
-
                 else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (missingDays != 1)) {
                     if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
                         deleteFromMissingDayData();

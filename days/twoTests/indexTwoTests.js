@@ -50,78 +50,51 @@ function timeline() {
                                     // button = randDevButton();
                                     if (startTrainning == "done3") {
                                         clearInterval(sessionInterval2Test2);
-                                        document.getElementById('startDevtestButtonBlue').style.display = "inline";
-                                        document.getElementById("iframe-element").style.top = "5%"
-                                        document.getElementById("iframe-element").src = "../../timer/timer.html";
-                                        document.getElementById('iframe-element').classList.remove('hidden');
-                                        document.getElementById("iframe-element").style.display = "inline";
-                                        setTimeout(() => {
-                                            clearInterval(sessionInterval2Test2);
-                                            document.getElementById('startDevtestButtonBlue').style.display = "none";
-                                            document.getElementById("iframe-element").style.display = "none";
-                                            let startDevaluation = async function () {
-                                                let doneTest2 = await startDevTest(); // add promise and resolve
-                                                if (doneTest2 == "doneTest2") {
-                                                    document.getElementById("redButton").style.display = "none";
-                                                    document.getElementById("blueButton").style.display = "none";
-                                                    studySessionData.doneTest2 = "doneTest2";
-                                                    studySessionData.expDaysDate = updatedDates.fullDate;
-                                                    platform.saveSession(studySessionData, true).then(() => {
-                                                        clearInterval(sessionIntervalTest);
-                                                        reset_blueCar()
-                                                        reset_redCar()
-                                                        sumCorrectFirstPress().then((sum) => {
-                                                            showWinningsEnd(sum);
-                                                            platform.saveSession(totalWins, true);
-                                                            setTimeout(() => {
-                                                                hideWinningsEnd();
-                                                                document.getElementById("endOfGame").style.display = "inline";
-                                                            }, 10000);
-                                                        })
-                                                    })
-                                                }
+                                        document.getElementById("redButton").style.display = "none";
+                                        document.getElementById("blueButton").style.display = "none";
+                                        let updatedDates = updateDates();
+                                        studySessionData.doneTest2 = "doneTest2";
+                                        studySessionData.expDaysDate = updatedDates.fullDate;
+                                        platform.saveSession(studySessionData, true).then(() => {
+                                            document.getElementById("endDayMsg").style.display = "inline";
+                                            document.getElementById("endDayMsg").addEventListener("click", function () {
+                                                showWinnings()
+                                                clearInterval(sessionInterval2Test2);
+                                                setTimeout(() => {
+                                                    if (window.matchMedia("(orientation: landscape)").matches) {
+                                                        hideWinnings();
+                                                        document.getElementById("fiveAM").style.display = "inline";
+                                                    } else {
+                                                        hideWinnings();
+                                                        document.getElementById("fiveAM_hor").style.display = "inline";
+                                                    }
+                                                }, 10000)
+                                                setTimeout(() => {
+                                                    moveToDay();
+                                                }, timeToFive())
+                                            })
+                                        }).catch(() => {
+                                            if (saveAttemptTraining >= 2000) {
+                                                document.getElementById("problem").style.display = "inline";
+                                            } else {
+                                                saveAttemptTraining++;
+                                                savingTraining()
                                             }
-                                            startDevaluation();
-                                        }, 16000);
+                                        })
                                     }
+
                                 }
                                 startIntervalTest();
-
                             }
                             goFour()
-                            // platform.saveSession(studySessionData, true).then(() => {
-                            //     document.getElementById("endDayMsg").style.display = "inline";
-                            //     document.getElementById("endDayMsg").addEventListener("click", function () {
-                            //         showWinnings()
-                            //         setTimeout(() => {
-                            //             platform.goToUrl("days/devTest/devTest.html");
-                            //         }, timeToFive())
-                            //         setTimeout(() => {
-                            //             hideWinnings();
-                            //             if (window.matchMedia("(orientation: landscape)").matches) {
-                            //                 document.getElementById("fiveAM").style.display = "inline";
-                            //             } else {
-                            //                 document.getElementById("fiveAM_hor").style.display = "inline";
-                            //             }
-                            //         }, 10000);
-                            //     })
-                            // })
                         }
 
                     }
                     startTwoTests()
                 }
-                // }
             } else {
                 document.getElementById("endOfGame").style.display = "inline";
             }
         })
     })
 }
-
-
-
-// let getlastData = await getData();
-// if (getlastData == "gotData") {
-//     studySessionData = savedData[0][savedData[0].length - 1];
-//     let updatedDates = updateDates();
