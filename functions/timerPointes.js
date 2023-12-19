@@ -227,8 +227,8 @@ function updateDates() {
         yesterdayPlusOne = nextDay.setDate(nextDay.getDate() + 1);
         yesterdayPlusOne = new Date(yesterdayPlusOne)
         lastGameDate = lastGame;
-        yesterday = new Date
-        yesterday = yesterday.setDate(yesterday.getDate() - 1);
+        yesterday = new Date;
+        yesterday = new Date(yesterday.setDate(yesterday.getDate() - 1));
     }
     return { fullDate, timeNow, today, yesterday, yesterdayPlusOne, lastGameDate, lastGame }
 }
