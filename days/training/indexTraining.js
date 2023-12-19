@@ -10,7 +10,7 @@ function timeline() {
                 let updatedDates = updateDates();
                 let todayDate = getTodayDate().slice(0, 2);
                 if (Number(todayDate) === Number(dayDate()) && (studySessionData.isDayDone == "")) {
-                    updatedDates.yesterday = updatedDates.yesterdayMinusOne;
+                    updatedDates.lastGame = updatedDates.lastGameDate;
                     updatedDates.yesterdayPlusOne = updatedDates.fullDate;
                 }
                 console.log("updatedDates.fullDate.getDate():", updatedDates.fullDate.getDate());
@@ -25,25 +25,20 @@ function timeline() {
                         document.getElementById("fiveAM_hor").style.display = "inline";
                     }
 
-                    // window.addEventListener("orientationchange", function () {
-                    //     if (window.matchMedia("(orientation: landscape)").matches) {
-                    //         document.getElementById("fiveAM").style.display = "inline";
-                    //     } else {
-                    //         document.getElementById("fiveAM_hor").style.display = "inline";
-                    //     }
-                    // });
-                    // });
-
                     setTimeout(() => {
                         moveToDay();
                     }, timeToFive());
 
                 }
-                else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (missingDays != 1)) {
+                else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (updatedDates.yesterday.getDate() == updatedDates.yesterdayPlusOne.getDate())) {
                     if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
-                        deleteFromMissingDayData();
-                        daysMissedNum.push(1);
-                        platform.saveSession(daysMissed);
+                        if (missingDays != 1) {
+                            deleteFromMissingDayData();
+                            daysMissedNum.push(1);
+                            platform.saveSession(daysMissed);
+                        } else {
+                            document.getElementById("endOfGame").style.display = "inline";
+                        }
                     }
                     if (0 <= updatedDates.fullDate.getHours() & updatedDates.fullDate.getHours() < 5) {
                         document.getElementById("fiveAM").style.display = "inline";

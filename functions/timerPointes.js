@@ -216,19 +216,21 @@ function updateDates() {
     if ((studySessionData == undefined) || (studySessionData.doneInstructions == "")) {
         return
     } else if ((studySessionData.isDayDone == "") && (studySessionData.doneInstructions != "")) {
-        yesterday = null;
+        lastGame = null;
         yesterdayPlusOne = null;
         nextDay = new Date(studySessionData.expDaysDate)
-        yesterdayMinusOne = nextDay.setDate(nextDay.getDate() - 1);
-        yesterdayMinusOne = new Date(yesterdayMinusOne);
+        lastGameDate = nextDay.setDate(nextDay.getDate() - 1);
+        lastGameDate = new Date(lastGameDate);
     } else {
-        yesterday = new Date(studySessionData.expDaysDate)
+        lastGame = new Date(studySessionData.expDaysDate)
         nextDay = new Date(studySessionData.expDaysDate)
         yesterdayPlusOne = nextDay.setDate(nextDay.getDate() + 1);
         yesterdayPlusOne = new Date(yesterdayPlusOne)
-        yesterdayMinusOne = yesterday;
+        lastGameDate = lastGame;
+        yesterday = new Date
+        yesterday = yesterday.setDate(yesterday.getDate() - 1);
     }
-    return { fullDate, timeNow, today, yesterday, yesterdayPlusOne, yesterdayMinusOne }
+    return { fullDate, timeNow, today, yesterday, yesterdayPlusOne, lastGameDate, yesterdayMinusOne }
 }
 
 
