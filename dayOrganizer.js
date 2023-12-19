@@ -12,7 +12,7 @@ function moveToDay() {
             const problem = document.getElementById("problem");
             const problem_hor = document.getElementById("problem_hor");
 
-            if (todayDate == "19") {
+            if (todayDate == "20") {
                 platform.goToUrl("days/twoTests/twoTests.html");
             } else if (typeof studySessionData === "undefined" || studySessionData.doneInstructions === "") {
                 platform.goToUrl("instructions/instructions.html");
