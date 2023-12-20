@@ -33,60 +33,34 @@ function timeline() {
                         if (doneTest1 == "done") {
                             studySessionData.doneTest1 = 'doneTest1';
                             studySessionData.expDaysDate = updatedDates.fullDate;
-                            let goFour = async function () {
-                                deleteFromSessionData();
-                                document.getElementById("redButton").style.display = "inline";
-                                document.getElementById("blueButton").style.display = "inline";
-                                document.getElementById("gameScreen").style.display = "inline";
-                                let my_awesome_script = document.createElement('script');
-                                my_awesome_script.setAttribute('src', '../../functions/orientation.js');
-                                // my_awesome_script.src = "../functions/orientation.js";
-                                document.body.appendChild(my_awesome_script);
-                                studySessionData.doneTest2 = "stratTest2";
-                                platform.saveSession(studySessionData, true);
-                                getMillisec();
-                                let startIntervalTest = async function () {
-                                    let startTrainning = await startInterval2Tests2();
-                                    // button = randDevButton();
-                                    if (startTrainning == "done3") {
-                                        clearInterval(sessionInterval2Test2);
-                                        document.getElementById("redButton").style.display = "none";
-                                        document.getElementById("blueButton").style.display = "none";
-                                        let updatedDates = updateDates();
-                                        studySessionData.doneTest2 = "doneTest2";
-                                        studySessionData.expDaysDate = updatedDates.fullDate;
-                                        platform.saveSession(studySessionData, true).then(() => {
-                                            document.getElementById("endDayMsg").style.display = "inline";
-                                            document.getElementById("endDayMsg").addEventListener("click", function () {
-                                                showWinnings()
-                                                clearInterval(sessionInterval2Test2);
-                                                setTimeout(() => {
-                                                    if (window.matchMedia("(orientation: landscape)").matches) {
-                                                        hideWinnings();
-                                                        document.getElementById("fiveAM").style.display = "inline";
-                                                    } else {
-                                                        hideWinnings();
-                                                        document.getElementById("fiveAM_hor").style.display = "inline";
-                                                    }
-                                                }, 10000)
-                                                setTimeout(() => {
-                                                    moveToDay();
-                                                }, timeToFive())
-                                            })
-                                        }).catch(() => {
-                                            if (saveAttemptTraining >= 2000) {
-                                                document.getElementById("problem").style.display = "inline";
-                                            } else {
-                                                saveAttemptTraining++;
-                                                savingTraining()
-                                            }
-                                        })
-                                    }
-
+                            let updatedDates = updateDates();
+                            studySessionData.expDaysDate = updatedDates.fullDate;
+                            platform.saveSession(studySessionData, true).then(() => {
+                                document.getElementById("endDayMsg").style.display = "inline";
+                                document.getElementById("endDayMsg").addEventListener("click", function () {
+                                    showWinnings()
+                                    clearInterval(sessionIntervalButtons);
+                                    setTimeout(() => {
+                                        if (window.matchMedia("(orientation: landscape)").matches) {
+                                            hideWinnings();
+                                            document.getElementById("fiveAM").style.display = "inline";
+                                        } else {
+                                            hideWinnings();
+                                            document.getElementById("fiveAM_hor").style.display = "inline";
+                                        }
+                                    }, 10000)
+                                    setTimeout(() => {
+                                        moveToDay();
+                                    }, timeToFive())
+                                })
+                            }).catch(() => {
+                                if (saveAttemptTraining >= 2000) {
+                                    document.getElementById("problem").style.display = "inline";
+                                } else {
+                                    saveAttemptTraining++;
+                                    savingTraining()
                                 }
-                                startIntervalTest();
-                            }
-                            goFour()
+                            })
                         }
 
                     }

@@ -14,7 +14,7 @@ async function start2tests() {
             document.getElementById("startButton").style.display = "none";
             // studySessionData.doneDay2 = "startDay2";
             // platform.saveSession(studySessionData, true);
-            // getMillisec();
+            getMillisec();
             let startIntervalTest = async function () {
                 let startBeforeStar = await startInterval2Tests();
                 if (startBeforeStar == "done1") {
