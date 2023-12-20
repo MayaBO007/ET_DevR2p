@@ -213,6 +213,8 @@ function updateDates() {
     let fullDate = new Date();
     let timeNow = getTodayStartTime();
     let today = getTodayDate();
+    yesterday = new Date;
+    yesterday = new Date(yesterday.setDate(yesterday.getDate() - 1));
     if ((studySessionData == undefined) || (studySessionData.doneInstructions == "")) {
         return
     } else if ((studySessionData.isDayDone == "") && (studySessionData.doneInstructions != "")) {
@@ -228,8 +230,6 @@ function updateDates() {
         yesterdayPlusOne = nextDay.setDate(nextDay.getDate() + 1);
         yesterdayPlusOne = new Date(yesterdayPlusOne)
         lastGameDate = lastGame;
-        yesterday = new Date;
-        yesterday = new Date(yesterday.setDate(yesterday.getDate() - 1));
     }
     return { fullDate, timeNow, today, yesterday, yesterdayPlusOne, lastGameDate, lastGame }
 }
