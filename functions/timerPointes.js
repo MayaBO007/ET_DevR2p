@@ -216,6 +216,7 @@ function updateDates() {
     if ((studySessionData == undefined) || (studySessionData.doneInstructions == "")) {
         return
     } else if ((studySessionData.isDayDone == "") && (studySessionData.doneInstructions != "")) {
+        yesterday = null;
         lastGame = null;
         yesterdayPlusOne = null;
         nextDay = new Date(studySessionData.expDaysDate)
