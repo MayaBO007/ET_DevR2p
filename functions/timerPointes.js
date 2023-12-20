@@ -34,19 +34,19 @@ async function getIndexMissedDays(data) {
     return IndexM;
 }
 
-function findMissingDays() {
-    platform.getAllSessions().then((data) => {
-        getIndexMissedDays(data).then((IndexM) => {
-            daysMissing = data[IndexM].daysMissedNum;
-            if (daysMissing.length > 0) {
-                daysMissing = daysMissing[daysMissing.length - 1];
-            } else {
-                daysMissing = 0;
-            }
-        })
-    })
-    return daysMissing
-}
+// function findMissingDays() {
+//     platform.getAllSessions().then((data) => {
+//         getIndexMissedDays(data).then((IndexM) => {
+//             daysMissing = data[IndexM].daysMissedNum;
+//             if (daysMissing.length > 0) {
+//                 daysMissing = daysMissing[daysMissing.length - 1];
+//             } else {
+//                 daysMissing = 0;
+//             }
+//         })
+//     })
+//     return daysMissing
+// }
 
 let now = null;
 function msCount() {
