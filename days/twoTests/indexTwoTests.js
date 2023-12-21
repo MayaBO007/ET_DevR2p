@@ -32,7 +32,6 @@ function timeline() {
                         let doneTest1 = await start2tests(); // add promise and resolve
                         if (doneTest1 == "done") {
                             studySessionData.doneTest1 = 'doneTest1';
-                            studySessionData.expDaysDate = updatedDates.fullDate;
                             let updatedDates = updateDates();
                             studySessionData.expDaysDate = updatedDates.fullDate;
                             platform.saveSession(studySessionData, true).then(() => {
