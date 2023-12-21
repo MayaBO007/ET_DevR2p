@@ -3,7 +3,8 @@ function moveToDay() {
         getIndexSessionData(data).then((indexI) => {
             studySessionData = data[indexI];
             let updatedDates = updateDates();
-            let todayDate = getTodayDate().slice(0, 2);
+            let todayDate = new Date;
+            todayDate = todayDate.getDate();
 
             const moveToAppButton = document.getElementById("moveToAppButton");
             const loading = document.getElementById("loading");
@@ -12,8 +13,27 @@ function moveToDay() {
             const problem = document.getElementById("problem");
             const problem_hor = document.getElementById("problem_hor");
 
-            if (todayDate == "2") {
-                platform.goToUrl("days/twoTests/twoTests.html");
+            if (todayDate >= "22") { //NO ZEROS IN FRONT OF SINGEL DIGITS
+                if (studySessionData.doneTest1 != "doneTest1") {
+                    platform.goToUrl("days/twoTests/twoTests.html");
+                } else if ((studySessionData.doneTest1 === "doneTest1") && (studySessionData.doneTest2 != "doneTest2")) {
+                    platform.goToUrl("days/devTest/devTest.html");
+                } else if (studySessionData.doneTest2 === "doneTest2") {
+                    moveToAppButton.style.display = "none";
+                    loading.style.display = "none";
+                    if (window.matchMedia("(orientation: landscape)").matches) {
+                        endOfGame.style.display = "inline";
+                    } else {
+                        endOfGame_hor.style.display = "inline";
+                    }
+                    endOfGame.style.display = "inline";
+                } else {
+                    if (window.matchMedia("(orientation: landscape)").matches) {
+                        problem.style.display = "inline";
+                    } else {
+                        problem_hor.style.display = "inline";
+                    }
+                }
             } else if (typeof studySessionData === "undefined" || studySessionData.doneInstructions === "") {
                 platform.goToUrl("instructions/instructions.html");
                 studySessionData.doneInstructions = "stratIns";
@@ -32,22 +52,22 @@ function moveToDay() {
                     } else {
                         problem_hor.style.display = "inline";
                     }
-                } else if ((studySessionData.doneTest1 === "doneTest1") && (studySessionData.doneTest2 != "doneTest2")) {
-                    platform.goToUrl("days/devTest/devTest.html");
-                } else if (studySessionData.doneTest2 === "doneTest2") {
+                } else {
                     moveToAppButton.style.display = "none";
                     loading.style.display = "none";
-                    endOfGame.style.display = "inline";
+                    if (window.matchMedia("(orientation: landscape)").matches) {
+                        endOfGame.style.display = "inline";
+                    } else {
+                        endOfGame_hor.style.display = "inline";
+                    }
                 }
             } else {
-                moveToAppButton.style.display = "none";
-                loading.style.display = "none";
                 if (window.matchMedia("(orientation: landscape)").matches) {
-                    endOfGame.style.display = "inline";
+                    problem.style.display = "inline";
                 } else {
-                    endOfGame_hor.style.display = "inline";
+                    problem_hor.style.display = "inline";
                 }
             }
-        })
+        });
     });
 }
