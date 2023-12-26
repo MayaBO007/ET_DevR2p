@@ -9,15 +9,15 @@ body {
     background-color: rgb(255, 252, 224);
     height: 90vh;
     /* Changed to viewport height */
-    width: 100%;
+    width: 90%;
     top: 0.2%;
     bottom: 0.5%;
-    left: 0%;
+    left: 5%;
     border-radius: 0px;
     /* box-shadow: 0px 0px 10px 10px; */
     position: absolute;
     border: 2px solid rgb(55, 55, 55);
-    padding: 15px 15px 15px 15px;
+    padding: 10px 1px;
 }
 
 /* Start Button Styles */
@@ -178,6 +178,23 @@ body {
     background-color: transparent;
     display: none;
     z-index: 9999;
+}
+
+#stratBackground {
+    position: absolute;
+    left: 0vw;
+    /* Changed to viewport width units */
+    top: 0.5vh;
+    /* Changed to viewport height units */
+    width: 100vw;
+    /* Changed to viewport width units */
+    height: 99vh;
+    /* Changed to viewport height units */
+    border: none;
+    color: none;
+    background-color: transparent;
+    display: none;
+    z-index: 99;
 }
 
 /* Media Query for Mobile Devices */
