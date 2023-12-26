@@ -6,7 +6,7 @@ body {
 /* Container Styles */
 #container {
     margin: 0.5% auto;
-    background-color: rgb(255, 252, 224);
+    background-color: rgb(255, 255, 255);
     height: 90%;
     /* Changed to viewport height */
     width: 90%;
@@ -38,15 +38,15 @@ body {
     direction: rtl;
 }
 
-#start:hover {
+/* #start:hover {
     border: 3px solid lightseagreen;
     color: lightseagreen;
-}
+} */
 
 /* Question Styles */
 #question {
     width: 75%;
-    background-color: rgb(255, 252, 224);
+    background-color: rgb(255, 255, 255);
     height: 20vh;
     /* Changed to viewport height */
     position: absolute;
@@ -57,7 +57,7 @@ body {
 
 #question p {
     height: 40%;
-    background-color: rgb(255, 252, 224);
+    background-color: rgb(255, 255, 255);
     margin: 0;
     font-size: 1.5em;
     text-align: center;
@@ -87,7 +87,7 @@ body {
     /* Set a maximum width if needed */
     text-align: center;
     border: 1px solid darkgray;
-    background-color: #c7f2e2;
+    background-color: rgb(203, 243, 240);
     border-radius: 5px;
     cursor: pointer;
     padding: 1vw;
@@ -98,11 +98,12 @@ body {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1)
 }
 
-/* 
+
 .choice:hover {
-    border: 2px solid grey;
+    border: 2px solid darkgrey;
+    background-color: rgb(255, 255, 255);
     font-weight: bold;
-} */
+}
 
 /* Counter Styles */
 #counter {
