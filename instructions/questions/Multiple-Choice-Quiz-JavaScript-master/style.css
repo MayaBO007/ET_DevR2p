@@ -11,6 +11,7 @@ body {
     /* Changed to viewport height */
     width: 100%;
     top: 0.5%;
+    bottom: 0.5%;
     left: 0%;
     border-radius: 0px;
     box-shadow: 0px 0px 10px 10px;
