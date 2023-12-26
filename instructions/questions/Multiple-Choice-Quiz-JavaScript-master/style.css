@@ -7,7 +7,7 @@ body {
 #container {
     margin: 0.5% auto;
     background-color: rgb(255, 252, 224);
-    height: 90vh;
+    height: 90%;
     /* Changed to viewport height */
     width: 90%;
     top: 5%;
