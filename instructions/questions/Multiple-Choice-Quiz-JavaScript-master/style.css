@@ -16,9 +16,9 @@ body {
     border-radius: 0px;
     /* box-shadow: 0px 0px 10px 10px; */
     position: absolute;
-    border: 2px solid rgb(123, 45, 38);
+    border: 2px solid rgb(188, 71, 73);
     /* padding: 10px 1px; */
-    color: rgb(65, 72, 51);
+    color: rgb(56, 102, 65);
 }
 
 /* Start Button Styles */
@@ -29,13 +29,15 @@ body {
     width: 50%;
     height: 25vh;
     /* Changed to viewport height */
-    border: 2px solid rgb(116, 9, 9);
+    border: 2px solid rgb(188, 71, 73);
+    background-color: rgb(250, 246, 236);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     cursor: pointer;
     position: absolute;
     left: 25%;
     top: 25%;
-    color: rgb(123, 45, 38);
+    color: rgb(188, 71, 73);
     direction: rtl;
 }
 
@@ -91,7 +93,7 @@ body {
     /* Set a maximum width if needed */
     text-align: center;
     border: 1px solid darkgray;
-    background-color: rgb(246, 243, 203);
+    background-color: rgb(249, 243, 229);
     border-radius: 5px;
     cursor: pointer;
     padding: 1vw;

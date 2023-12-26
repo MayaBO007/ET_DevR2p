@@ -148,12 +148,12 @@ function checkAnswer(answer) {
 
 // answer is correct
 function answerIsCorrect() {
-    document.getElementById(runningQuestion).style.backgroundColor = "rgb(30, 168, 150)";
+    document.getElementById(runningQuestion).style.backgroundColor = "rgb(106, 153, 78)";
 }
 
 // answer is Wrong
 function answerIsWrong() {
-    document.getElementById(runningQuestion).style.backgroundColor = "rgb(238, 97, 35)";
+    document.getElementById(runningQuestion).style.backgroundColor = "rgb(188, 71, 73)";
 }
 
 // score render
