@@ -1,12 +1,14 @@
 body {
     font-size: 20px;
-    font-family: monospace;
+    font-family: "Alef Hebrew", sans-serif;
 }
 
+/* Container Styles */
 #container {
     margin: 20px auto;
     background-color: rgb(255, 252, 224);
-    height: 85%;
+    height: 85vh;
+    /* Changed to viewport height */
     width: 95%;
     top: 5%;
     left: 2.5%;
@@ -15,12 +17,14 @@ body {
     position: absolute;
 }
 
+/* Start Button Styles */
 #start {
     font-size: 1.5em;
     font-weight: bolder;
     word-break: break-all;
     width: 50%;
-    height: 25%;
+    height: 25vh;
+    /* Changed to viewport height */
     border: 2px solid rgb(116, 9, 9);
     text-align: center;
     cursor: pointer;
@@ -29,16 +33,6 @@ body {
     top: 25%;
     color: rgb(116, 9, 9);
     direction: rtl;
-
-}
-
-#stratBackground {
-    position: absolute;
-    background-position: center;
-    text-align: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-
 }
 
 #start:hover {
@@ -46,10 +40,12 @@ body {
     color: lightseagreen;
 }
 
+/* Question Styles */
 #question {
     width: 75%;
     background-color: rgb(255, 252, 224);
-    height: 20%;
+    height: 20vh;
+    /* Changed to viewport height */
     position: absolute;
     right: 12.5%;
     top: 15%;
@@ -66,29 +62,36 @@ body {
     direction: rtl;
 }
 
+/* Choices Styles */
 #choices {
     width: 90%;
     position: relative;
     bottom: 12.5%;
-    left: 0%;
-    padding: 70px;
+    left: 5%;
+    padding: 3vw;
     position: absolute;
-
 }
 
 .choice {
     display: inline-block;
-    width: 30%;
-    height: 40%;
-    top: 40%;
+    min-width: 30%;
+    /* Set a minimum width */
+    max-width: 30%;
+    /* Set a maximum width if needed */
+    min-height: 30%;
+    /* Set a minimum width */
+    max-height: 50%;
+    /* Set a maximum width if needed */
     text-align: center;
     border: 1px solid grey;
     background-color: lightgray;
     border-radius: 5px;
     cursor: pointer;
-    padding: 5px;
+    padding: 1vw;
+    margin: 1vw;
     position: relative;
     direction: rtl;
+    box-sizing: border-box;
 }
 
 .choice:hover {
@@ -96,58 +99,77 @@ body {
     font-weight: bold;
 }
 
+/* Counter Styles */
 #counter {
     font-size: 3em;
 }
 
 #btimeGauge {
-    width: 50%;
-    height: 10%;
+    width: 50vw;
+    /* Changed to viewport width units */
+    height: 10vh;
+    /* Changed to viewport height units */
     border-radius: 10px;
     background-color: lightgray;
-    margin-left: 25px;
+    margin-left: 2.5vw;
+    /* Changed to viewport width units */
 }
 
-
+/* Progress Styles */
 #progress {
-    height: 10%;
-    width: 40%;
+    height: 10vh;
+    /* Changed to viewport height units */
+    width: 40vw;
+    /* Changed to viewport width units */
     position: absolute;
     bottom: 0%;
-    right: 0px;
-    /* padding: 5px; */
+    right: 0vw;
+    /* Changed to viewport width units */
     text-align: right;
 }
 
 .prog {
-    width: 25px;
-    height: 25px;
+    width: 3vw;
+    /* Changed to viewport width units */
+    height: 3vw;
+    /* Changed to viewport width units */
     border: 1px solid #000;
     display: inline-block;
     border-radius: 50%;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 1vw;
+    /* Changed to viewport width units */
+    margin-right: 1vw;
+    /* Changed to viewport width units */
 }
 
+/* Score Container Styles */
 #scoreContainer {
     margin: 20px auto;
     background-color: transparent;
     position: absolute;
     border: none;
     display: none;
-    height: 65%;
-    width: 59%;
-    left: 20%;
-    top: 15%;
-
+    height: 65vh;
+    /* Changed to viewport height units */
+    width: 59vw;
+    /* Changed to viewport width units */
+    left: 20vw;
+    /* Changed to viewport width units */
+    top: 15vh;
+    /* Changed to viewport height units */
 }
 
+/* Instruction Button Styles */
 #ins12 {
     position: absolute;
-    left: 0%;
-    top: 0.5%;
-    width: 100%;
-    height: 99%;
+    left: 0vw;
+    /* Changed to viewport width units */
+    top: 0.5vh;
+    /* Changed to viewport height units */
+    width: 100vw;
+    /* Changed to viewport width units */
+    height: 99vh;
+    /* Changed to viewport height units */
     border: none;
     color: none;
     background-color: transparent;
@@ -155,21 +177,29 @@ body {
     z-index: 9999;
 }
 
-/*
-#scoreContainer img {
-    position: absolute;
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 600px) {
 
-    width: 100%;
-    height: 100%;
+    /* Add mobile-specific styles here */
+    #container {
+        width: 90%;
+        left: 5%;
+    }
 
+    #start,
+    #question,
+    .choice,
+    #btimeGauge,
+    #progress,
+    .prog,
+    #scoreContainer,
+    #ins12 {
+        width: 80%;
+        left: 10%;
+    }
+
+    #choices {
+        left: 10%;
+        /* Adjusted left value for better alignment in mobile view */
+    }
 }
-
-
-#scoreContainer p {
-    position: absolute;
-    display: block;
-    width: 20%;
-    height: 20%;
-    top: 20%;
-    left: 20%;
-}*/
