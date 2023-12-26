@@ -15,6 +15,8 @@ body {
     border-radius: 0px;
     box-shadow: 0px 5px 15px 0px;
     position: absolute;
+    border: 2px solid rgb(55, 55, 55);
+    padding: 10px;
 }
 
 /* Start Button Styles */
@@ -66,7 +68,7 @@ body {
 #choices {
     width: 90%;
     position: relative;
-    bottom: 12.5%;
+    bottom: 15%;
     left: 5%;
     padding: 3vw;
     position: absolute;
@@ -83,8 +85,8 @@ body {
     max-height: 50%;
     /* Set a maximum width if needed */
     text-align: center;
-    border: 1px solid grey;
-    background-color: lightgray;
+    border: 1px solid darkgray;
+    background-color: #c7f2e2;
     border-radius: 5px;
     cursor: pointer;
     padding: 1vw;
@@ -92,12 +94,14 @@ body {
     position: relative;
     direction: rtl;
     box-sizing: border-box;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1)
 }
 
+/* 
 .choice:hover {
     border: 2px solid grey;
     font-weight: bold;
-}
+} */
 
 /* Counter Styles */
 #counter {
@@ -120,8 +124,8 @@ body {
     width: 40vw;
     /* Changed to viewport width units */
     position: absolute;
-    bottom: 0%;
-    right: 0vw;
+    bottom: 2.5%;
+    right: 5vw;
     /* Changed to viewport width units */
     text-align: right;
 }
