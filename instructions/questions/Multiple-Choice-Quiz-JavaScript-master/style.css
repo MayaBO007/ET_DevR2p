@@ -102,8 +102,19 @@ body {
 
 .choice:hover {
     border: 2px solid darkgrey;
-    background-color: rgb(255, 255, 255);
+    animation-name: colorChange;
+    ;
     font-weight: bold;
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: rgb(255, 255, 255);
+    }
+
+    100% {
+        background-color: rgb(203, 243, 240);
+    }
 }
 
 /* Counter Styles */
