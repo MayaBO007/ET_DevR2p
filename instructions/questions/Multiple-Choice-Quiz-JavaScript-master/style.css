@@ -96,23 +96,15 @@ body {
     direction: rtl;
     box-sizing: border-box;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 1s;
 }
 
 
-.choice:hover {
+.choice:active {
+    border: 2px solid darkgrey;
     animation-name: colorChange;
-}
-
-@keyframes colorChange {
-    0% {
-        background-color: rgb(255, 255, 255);
-        border: 2px solid darkgrey;
-    }
-
-    100% {
-        background-color: rgb(203, 243, 240);
-        font-weight: bold;
-    }
+    background-color: rgb(255, 255, 255);
+    font-weight: bold;
 }
 
 /* Counter Styles */
