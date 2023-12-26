@@ -98,13 +98,12 @@ body {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     /* Set cursor to pointer to indicate interactivity */
-    transition: color 2s;
+    transition: background-color 2s;
 }
 
 
 .choice:active {
     border: 2px solid darkgrey;
-    animation-name: colorChange;
     background-color: rgb(255, 255, 255);
     font-weight: bold;
 }
