@@ -10,9 +10,9 @@ body {
     height: 90vh;
     /* Changed to viewport height */
     width: 100%;
-    top: 0.5%;
+    top: 0.2%;
     bottom: 0.5%;
-    left: 0%;
+    left: -1%;
     border-radius: 0px;
     /* box-shadow: 0px 0px 10px 10px; */
     position: absolute;
