@@ -18,7 +18,7 @@ body {
     position: absolute;
     border: 2px solid rgb(123, 45, 38);
     /* padding: 10px 1px; */
-    color: rgb(9, 52, 46);
+    color: rgb(19, 42, 19);
 }
 
 /* Start Button Styles */
@@ -103,6 +103,7 @@ body {
     cursor: pointer;
     /* Set cursor to pointer to indicate interactivity */
     transition: background-color 0s;
+    transition-duration: 1s;
 }
 
 
