@@ -104,16 +104,14 @@ body {
     font-size: 3em;
 }
 
-#btimeGauge {
+/* #btimeGauge {
     width: 50vw;
-    /* Changed to viewport width units */
     height: 10vh;
-    /* Changed to viewport height units */
     border-radius: 10px;
     background-color: lightgray;
     margin-left: 2.5vw;
-    /* Changed to viewport width units */
-}
+} 
+*/
 
 /* Progress Styles */
 #progress {
@@ -202,4 +200,5 @@ body {
         left: 10%;
         /* Adjusted left value for better alignment in mobile view */
     }
+
 }
