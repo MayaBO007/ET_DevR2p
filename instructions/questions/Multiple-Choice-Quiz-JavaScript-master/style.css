@@ -6,7 +6,7 @@ body {
 /* Container Styles */
 #container {
     margin: 0.5% auto;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 252, 224);
     height: 90%;
     /* Changed to viewport height */
     width: 90%;
@@ -18,7 +18,7 @@ body {
     position: absolute;
     border: 2px solid rgb(188, 71, 73);
     /* padding: 10px 1px; */
-    color: rgb(56, 102, 65);
+    color: rgb(0, 92, 0);
 }
 
 /* Start Button Styles */
@@ -30,7 +30,7 @@ body {
     height: 25vh;
     /* Changed to viewport height */
     border: 2px solid rgb(188, 71, 73);
-    background-color: rgb(250, 246, 236);
+    background-color: rgb(255, 252, 224);
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     cursor: pointer;
@@ -51,7 +51,7 @@ body {
     width: 75%;
     font-size: 1em;
     font-weight: bolder;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 252, 224);
     height: 20vh;
     /* Changed to viewport height */
     position: absolute;
@@ -62,7 +62,7 @@ body {
 
 #question p {
     height: 40%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 252, 224);
     margin: 0;
     font-size: 1.5em;
     text-align: center;
@@ -74,9 +74,9 @@ body {
 #choices {
     width: 90%;
     position: relative;
-    bottom: 15%;
+    bottom: 17%;
     left: 5%;
-    padding: 3vw;
+    /* padding: 3vw; */
     position: absolute;
 }
 
@@ -93,7 +93,7 @@ body {
     /* Set a maximum width if needed */
     text-align: center;
     border: 1px solid darkgray;
-    background-color: rgb(249, 243, 229);
+    background-color: rgb(255, 255, 255);
     border-radius: 5px;
     cursor: pointer;
     padding: 1vw;
