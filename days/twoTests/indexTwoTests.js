@@ -17,10 +17,19 @@ function timeline() {
                     moveToDay();
                 }, timeToFive());
             }
-            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (daysMissed.daysMissedNum == null)) {
+            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (updatedDates.yesterday.getDate() == updatedDates.yesterdayPlusOne.getDate())) {
                 if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
-                    daysMissed.daysMissedNum = 1;
-                    platform.saveSession(daysMissed);
+                    getIndexMissedDays(data).then((indexM) => {
+                        missingDaysData = data[indexM]
+                        missingDays = missingDaysData.daysMissedNum;
+                        if (missingDays != 1) {
+                            deleteFromMissingDayData();
+                            daysMissedNum.push(1);
+                            platform.saveSession(daysMissed);
+                        } else {
+                            document.getElementById("endOfGame").style.display = "inline";
+                        }
+                    })
                 }
                 if (0 <= updatedDates.fullDate.getHours() & updatedDates.fullDate.getHours() < 5) {
                     document.getElementById("fiveAM").style.display = "inline";
