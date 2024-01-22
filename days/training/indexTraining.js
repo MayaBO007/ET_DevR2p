@@ -5,16 +5,17 @@ function timeline() {
             studySessionData = data[indexI];
             deleteFromSessionData();
             let updatedDates = updateDates();
-            let todayDate = getTodayDate().slice(0, 2);
-            if (Number(todayDate) === Number(dayDate()) && (studySessionData.isDayDone == "")) {
-                updatedDates.lastGame = updatedDates.lastGameDate;
+            let todayDate = new Date;
+            todayDate = todayDate.getDate();
+            if (((Number(todayDate) === Number(dayDate())) || (Number(todayDate) === (new Date(studySessionData.expDaysDate).getDate() + 1))) && (studySessionData.isDayDone == "")) { //if it's the same date as the first day or the day after the first day and the user didn't play on the first day. 
+                updatedDates.yesterday = updatedDates.yesterdayMinusOne;
                 updatedDates.yesterdayPlusOne = updatedDates.fullDate;
+                if (Number(todayDate) === new Date(studySessionData.expDaysDate).getDate() + 1) { // if they didn't play on the first day add to missing days
+                    daysMissedNum.push(1);
+                    platform.saveSession(daysMissed);
+                }
             }
-            console.log("updatedDates.fullDate.getDate():", updatedDates.fullDate.getDate());
-            console.log("updatedDates.yesterdayPlusOne.getDate():", updatedDates.yesterdayPlusOne.getDate());
-            console.log("daysMissed.daysMissedNum:", updatedDates.yesterday.getDate());
-
-            if (updatedDates.fullDate.getDate() == updatedDates.lastGame.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
+            if (updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
                 // document.addEventListener("DOMContentLoaded", function () {
                 if (window.matchMedia("(orientation: landscape)").matches) {
                     document.getElementById("fiveAM").style.display = "inline";
@@ -22,11 +23,21 @@ function timeline() {
                     document.getElementById("fiveAM_hor").style.display = "inline";
                 }
 
+                // window.addEventListener("orientationchange", function () {
+                //     if (window.matchMedia("(orientation: landscape)").matches) {
+                //         document.getElementById("fiveAM").style.display = "inline";
+                //     } else {
+                //         document.getElementById("fiveAM_hor").style.display = "inline";
+                //     }
+                // });
+                // });
+
                 setTimeout(() => {
                     moveToDay();
                 }, timeToFive());
 
             }
+
             else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (updatedDates.yesterday.getDate() == updatedDates.yesterdayPlusOne.getDate())) {
                 if (updatedDates.fullDate.getDate() != updatedDates.yesterdayPlusOne.getDate()) {
                     getIndexMissedDays(data).then((indexM) => {
@@ -42,7 +53,11 @@ function timeline() {
                     })
                 }
                 if (0 <= updatedDates.fullDate.getHours() & updatedDates.fullDate.getHours() < 5) {
-                    document.getElementById("fiveAM").style.display = "inline";
+                    if (window.matchMedia("(orientation: landscape)").matches) {
+                        document.getElementById("fiveAM").style.display = "inline";
+                    } else {
+                        document.getElementById("fiveAM_hor").style.display = "inline";
+                    }
                     setTimeout(() => {
                         moveToDay();
                     }, timeToFiveSameDay());
@@ -51,14 +66,15 @@ function timeline() {
                     let goTraining = async function () {
                         let isDayDone = await trainingDay();
                         if (isDayDone == "done") {
+                            clearInterval(sessionIntervalTrainingDay);
                             let updatedDates = updateDates();
                             studySessionData.isDayDone = "done";
                             studySessionData.expDaysDate = updatedDates.fullDate;
                             platform.saveSession(studySessionData, true).then(() => {
+                                clearInterval(sessionIntervalTrainingDay);
                                 document.getElementById("endDayMsg").style.display = "inline";
                                 document.getElementById("endDayMsg").addEventListener("click", function () {
                                     showWinnings()
-                                    clearInterval(sessionIntervalTrainingDay);
                                     setTimeout(() => {
                                         if (window.matchMedia("(orientation: landscape)").matches) {
                                             hideWinnings();
@@ -72,13 +88,6 @@ function timeline() {
                                         moveToDay();
                                     }, timeToFive())
                                 })
-                            }).catch(() => {
-                                if (saveAttemptTraining >= 2000) {
-                                    document.getElementById("problem").style.display = "inline";
-                                } else {
-                                    saveAttemptTraining++;
-                                    savingTraining()
-                                }
                             })
                         }
 
