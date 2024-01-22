@@ -41,11 +41,12 @@ function moveToDay() {
                 if (
                     studySessionData.isDayDone === "done" &&
                     studySessionData.doneTest1 !== "doneTest1" ||
-                    Number(todayDate) === Number(dayDate())) {
+                    studySessionData.isDayDone != "done" && (Number(todayDate) === Number(dayDate()) ||
+                        Number(todayDate) === (Number(dayDate()) + 1))) {
                     platform.goToUrl("days/training/training.html");
                 } else if (
                     studySessionData.isDayDone !== "done" &&
-                    updatedDates.fullDate.getDate() !== Number(dayDate())
+                    (updatedDates.fullDate.getDate() !== Number(dayDate() || updatedDates.fullDate.getDate() !== (Number(dayDate()) + 1)))
                 ) {
                     if (window.matchMedia("(orientation: landscape)").matches) {
                         problem.style.display = "inline";
