@@ -213,7 +213,8 @@ function updateDates() {
     let fullDate = new Date();
     let timeNow = getTodayStartTime();
     let today = getTodayDate();
-    let yesterday = new Date(fullDate.setDate(fullDate.getDate() - 1));
+    let date = new Date;
+    let yesterday = new Date(date.setDate(date.getDate() - 1));
     if ((studySessionData == undefined) || (studySessionData.doneInstructions == "")) {
         return
     } else if ((studySessionData.isDayDone == "") && (studySessionData.doneInstructions != "")) {
