@@ -14,7 +14,7 @@ function timeline() {
                     platform.saveSession(daysMissed);
                 }
             }
-            if ((updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) || (updatedDates.fullDate.getDate() == updatedDates.lastGame.getDate())) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
+            if (updatedDates.fullDate.getDate() == updatedDates.lastGame.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
                 // document.addEventListener("DOMContentLoaded", function () {
                 if (window.matchMedia("(orientation: landscape)").matches) {
                     document.getElementById("fiveAM").style.display = "inline";
