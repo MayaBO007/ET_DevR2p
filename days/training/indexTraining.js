@@ -42,7 +42,7 @@ function timeline() {
                     getIndexMissedDays(data).then((indexM) => {
                         missingDaysData = data[indexM]
                         missingDays = missingDaysData.daysMissedNum;
-                        if (missingDays != 1) {
+                        if (missingDays != 1 || missingDays == "undefined") {
                             deleteFromMissingDayData();
                             daysMissedNum.push(1);
                             platform.saveSession(daysMissed);
