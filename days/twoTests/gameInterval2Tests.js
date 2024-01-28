@@ -139,7 +139,7 @@ async function startInterval2Tests() {
             reset_airplane();
             // reset_redCar();
             // reset_blueCar();
-        }, 5000);
+        }, 20000);
         // }, 3000);
     });
 };
@@ -244,7 +244,7 @@ async function startInterval2Tests2() {
                 })
             };
             savingTrainingThree2()
-        }, 7000);
+        }, 20000);
         // }, 3000);
     });
 };
