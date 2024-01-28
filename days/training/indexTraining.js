@@ -9,6 +9,8 @@ function timeline() {
             todayDate = todayDate.getDate();
             if (((Number(todayDate) === Number(dayDate())) || (Number(todayDate) === (new Date(studySessionData.expDaysDate).getDate() + 1))) && (studySessionData.isDayDone == "")) { //if it's the same date as the first day or the day after the first day and the user didn't play on the first day. 
                 updatedDates.yesterdayPlusOne = updatedDates.fullDate;
+                yesterday = new Date;
+                updatedDates.lastGame = new Date(yesterday.setDate(yesterday.getDate() - 1));
                 if (Number(todayDate) === (Number(new Date(studySessionData.expDaysDate).getDate() + 1))) { // if they didn't play on the first day add to missing days
                     daysMissedNum.push(1);
                     platform.saveSession(daysMissed);
