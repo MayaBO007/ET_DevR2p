@@ -53,6 +53,7 @@ async function startInstructions() {
                                 document.getElementById("next").style.display = "inline";
                             }, 5000);
                             document.getElementById("doNotDisturb").onclick = function () {
+                                clearTimeout();
                                 document.getElementById("next").style.display = "none";
                                 document.getElementById("doNotDisturb").style.display = "none";
                                 document.getElementById("ins7").style.display = "none";
