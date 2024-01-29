@@ -24,7 +24,7 @@ async function demo() {
             document.getElementById("redButton").onclick = function () {
                 document.getElementById("corrRed").style.display = "inline";
                 document.getElementById("redCar").style.animationPlayState = "paused";
-                document.getElementById("redCar").style.display = "non2";
+                document.getElementById("redCar").style.display = "none";
                 setTimeout(function () {
                     document.getElementById("corrRed").style.display = "none";
                     document.getElementById("blueCar").style.display = "inline";
