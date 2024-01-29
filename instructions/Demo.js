@@ -24,6 +24,7 @@ async function demo() {
             document.getElementById("redButton").onclick = function () {
                 document.getElementById("corrRed").style.display = "inline";
                 document.getElementById("redCar").style.animationPlayState = "paused";
+                document.getElementById("redCar").style.display = "non2";
                 setTimeout(function () {
                     document.getElementById("corrRed").style.display = "none";
                     document.getElementById("blueCar").style.display = "inline";
@@ -32,6 +33,7 @@ async function demo() {
                     document.getElementById("blueCar").style.animationDuration = "1.5s"
                 }, 1000);
                 document.getElementById("blueButton").onclick = function () {
+                    document.getElementById("blueCar").style.display = "none";
                     document.getElementById("blueCar").style.animationPlayState = "paused";
                     document.getElementById("corrBlue").style.display = "inline";
                     setTimeout(function () {
