@@ -62,23 +62,22 @@ async function demo() {
                     document.getElementById("wrongBlue").style.display = "inline";
                     setTimeout(() => {
                         document.getElementById("wrongBlue").style.display = "none";
+                        document.getElementById("blueCar").style.display = "inline";
+                        document.getElementById("blueCar").style.animationPlayState = "running";
+                        document.getElementById("blueCar").style.animationIterationCount = "1";
+                        document.getElementById("blueCar").style.animationDuration = "1.5s"
                     }, 2000);
-                    document.getElementById("blueCar").style.display = "inline";
-                    document.getElementById("blueCar").style.animationPlayState = "running";
-                    document.getElementById("blueCar").style.animationIterationCount = "1";
-                    document.getElementById("blueCar").style.animationDuration = "1.5s"
                 }
             }
             document.getElementById("blueButton").onclick = function () {
                 document.getElementById("wrongRed").style.display = "inline";
                 setTimeout(() => {
                     document.getElementById("wrongRed").style.display = "none";
-                    mistakeDemo = 0;
+                    document.getElementById("redCar").style.display = "inline";
+                    document.getElementById("redCar").style.animationPlayState = "running";
+                    document.getElementById("redCar").style.animationDuration = "1.5s"
+                    document.getElementById("redCar").style.animationIterationCount = "1";
                 }, 2000);
-                document.getElementById("redCar").style.display = "inline";
-                document.getElementById("redCar").style.animationPlayState = "running";
-                document.getElementById("redCar").style.animationDuration = "1.5s"
-                document.getElementById("redCar").style.animationIterationCount = "1";
             }
             setTimeout(() => {
                 if (redPressDemo == null || bluePressDemo == null) {
