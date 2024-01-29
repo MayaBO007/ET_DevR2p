@@ -16,78 +16,81 @@ async function demo() {
         document.getElementById("blueButton").style.display = "flex";
         document.getElementById("gameScreen").style.display = "inline";
         // document.getElementById("ins12").style.display = "none";
-        function startDemo() {
-            setTimeout(() => {
+        setTimeout(() => {
+            document.getElementById("redCar").style.display = "inline";
+            document.getElementById("redCar").style.animationPlayState = "running";
+            document.getElementById("redCar").style.animationDuration = "1.5s"
+            document.getElementById("redCar").style.animationIterationCount = "1";
+            document.getElementById("redButton").onclick = function () {
+                document.getElementById("corrRed").style.display = "inline";
+                setTimeout(function () {
+                    document.getElementById("corrRed").style.display = "none";
+                    document.getElementById("blueCar").style.display = "inline";
+                    document.getElementById("blueCar").style.animationPlayState = "running";
+                    document.getElementById("blueCar").style.animationIterationCount = "1";
+                    document.getElementById("blueCar").style.animationDuration = "1.5s"
+                }, 1000);
+                document.getElementById("blueButton").onclick = function () {
+                    document.getElementById("corrBlue").style.display = "inline";
+                    setTimeout(function () {
+                        document.getElementById("corrBlue").style.display = "none";
+                        document.getElementById("airplane").style.display = "inline";
+                        document.getElementById("airplane").style.animationPlayState = "running";
+                        document.getElementById("airplane").style.animationDuration = "3s"
+
+                        document.getElementById("blueButton").onclick = function () {
+                            document.getElementById("rest").style.display = "inline";
+                            setTimeout(() => {
+                                document.getElementById("rest").style.display = "none";
+                            }, 1500);
+                        }
+                        document.getElementById("redButton").onclick = function () {
+                            document.getElementById("rest").style.display = "inline";
+                            setTimeout(() => {
+                                document.getElementById("rest").style.display = "none";
+                            }, 2500);
+                        }
+                    }, 1000);
+
+                    setTimeout(() => {
+                        document.getElementById("airplane").style.display = "none";
+                        document.getElementById("rest").style.display = "none";
+                        resolve("done");
+                    }, 4000);
+                }
+                document.getElementById("redButton").onclick = function () {
+                    document.getElementById("wrongBlue").style.display = "inline";
+                    setTimeout(() => {
+                        document.getElementById("wrongBlue").style.display = "none";
+                    }, 2000);
+                    document.getElementById("blueCar").style.display = "inline";
+                    document.getElementById("blueCar").style.animationPlayState = "running";
+                    document.getElementById("blueCar").style.animationIterationCount = "1";
+                    document.getElementById("blueCar").style.animationDuration = "1.5s"
+                }
+            }
+            document.getElementById("blueButton").onclick = function () {
+                document.getElementById("wrongRed").style.display = "inline";
+                setTimeout(() => {
+                    document.getElementById("wrongRed").style.display = "none";
+                    mistakeDemo = 0;
+                }, 2000);
                 document.getElementById("redCar").style.display = "inline";
                 document.getElementById("redCar").style.animationPlayState = "running";
                 document.getElementById("redCar").style.animationDuration = "1.5s"
                 document.getElementById("redCar").style.animationIterationCount = "1";
-                document.getElementById("redButton").onclick = function () {
-                    document.getElementById("corrRed").style.display = "inline";
+            }
+            setTimeout(() => {
+                if (redPressDemo == null || bluePressDemo == null) {
+                    document.getElementById("pressButton").style.display = "inline";
                     setTimeout(function () {
-                        document.getElementById("corrRed").style.display = "none";
-                        document.getElementById("blueCar").style.display = "inline";
-                        document.getElementById("blueCar").style.animationPlayState = "running";
-                        document.getElementById("blueCar").style.animationIterationCount = "1";
-                        document.getElementById("blueCar").style.animationDuration = "1.5s"
-                    }, 1000);
-                    document.getElementById("blueButton").onclick = function () {
-                        document.getElementById("corrBlue").style.display = "inline";
-                        setTimeout(function () {
-                            document.getElementById("corrBlue").style.display = "none";
-                            document.getElementById("airplane").style.display = "inline";
-                            document.getElementById("airplane").style.animationPlayState = "running";
-                            document.getElementById("airplane").style.animationDuration = "3s"
-
-                            document.getElementById("blueButton").onclick = function () {
-                                document.getElementById("rest").style.display = "inline";
-                                setTimeout(() => {
-                                    document.getElementById("rest").style.display = "none";
-                                }, 1500);
-                            }
-                            document.getElementById("redButton").onclick = function () {
-                                document.getElementById("rest").style.display = "inline";
-                                setTimeout(() => {
-                                    document.getElementById("rest").style.display = "none";
-                                }, 2500);
-                            }
-                        }, 1000);
-
-                        setTimeout(() => {
-                            document.getElementById("airplane").style.display = "none";
-                            document.getElementById("rest").style.display = "none";
-                            resolve("done");
-                        }, 4000);
-                    }
-                    document.getElementById("redButton").onclick = function () {
-                        document.getElementById("wrongBlue").style.display = "inline";
-                        setTimeout(function () {
-                            document.getElementById("wrongBlue").style.display = "none";
-                        }, 2000);
-                        startDemo();
-                    }
+                        document.getElementById("pressButton").style.display = "none";
+                    }, 3000);
                 }
-                document.getElementById("blueButton").onclick = function () {
-                    document.getElementById("wrongRed").style.display = "inline";
-                    setTimeout(function () {
-                        document.getElementById("wrongRed").style.display = "none";
-                        mistakeDemo = 0;
-                    }, 2000);
-                    startDemo();
-                }
-                setTimeout(() => {
-                    if (redPressDemo == null || bluePressDemo == null) {
-                        document.getElementById("pressButton").style.display = "inline";
-                        setTimeout(function () {
-                            document.getElementById("pressButton").style.display = "none";
-                        }, 3000);
-                    }
-                }, 60000);
-                // }
-                // }
-                // afterOnload();
-            }, 5000)
-        }
-        startDemo();
+            }, 60000);
+            // }
+            // }
+            // afterOnload();
+        }, 5000);
     });
 }
