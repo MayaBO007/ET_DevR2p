@@ -49,11 +49,11 @@ async function startInstructions() {
                             document.getElementById("next").style.display = "none";
                             document.getElementById("ins7").style.display = "inline";
                             document.getElementById("doNotDisturb").style.display = "inline";
-                            setTimeout(function () {
+                            disNext = setTimeout(function () {
                                 document.getElementById("next").style.display = "inline";
                             }, 5000);
                             document.getElementById("doNotDisturb").onclick = function () {
-                                clearTimeout();
+                                clearTimeout(disNext);
                                 document.getElementById("next").style.display = "none";
                                 document.getElementById("doNotDisturb").style.display = "none";
                                 document.getElementById("ins7").style.display = "none";
