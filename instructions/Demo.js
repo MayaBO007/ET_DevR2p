@@ -23,14 +23,16 @@ async function demo() {
             document.getElementById("redCar").style.animationIterationCount = "1";
             document.getElementById("redButton").onclick = function () {
                 document.getElementById("corrRed").style.display = "inline";
+                document.getElementById("redCar").style.animationPlayState = "paused";
                 setTimeout(function () {
                     document.getElementById("corrRed").style.display = "none";
                     document.getElementById("blueCar").style.display = "inline";
                     document.getElementById("blueCar").style.animationPlayState = "running";
-                    document.getElementById("blueCar").style.animationIterationCount = "1";
+                    // document.getElementById("blueCar").style.animationIterationCount = "1";
                     document.getElementById("blueCar").style.animationDuration = "1.5s"
                 }, 1000);
                 document.getElementById("blueButton").onclick = function () {
+                    document.getElementById("blueCar").style.animationPlayState = "paused";
                     document.getElementById("corrBlue").style.display = "inline";
                     setTimeout(function () {
                         document.getElementById("corrBlue").style.display = "none";
@@ -64,7 +66,7 @@ async function demo() {
                         document.getElementById("wrongBlue").style.display = "none";
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
-                        document.getElementById("blueCar").style.animationIterationCount = "1";
+                        // document.getElementById("blueCar").style.animationIterationCount = "1";
                         document.getElementById("blueCar").style.animationDuration = "1.5s"
                     }, 2000);
                 }
@@ -76,7 +78,7 @@ async function demo() {
                     document.getElementById("redCar").style.display = "inline";
                     document.getElementById("redCar").style.animationPlayState = "running";
                     document.getElementById("redCar").style.animationDuration = "1.5s"
-                    document.getElementById("redCar").style.animationIterationCount = "1";
+                    // document.getElementById("redCar").style.animationIterationCount = "1";
                 }, 2000);
             }
             setTimeout(() => {
