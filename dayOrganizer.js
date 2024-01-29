@@ -34,7 +34,7 @@ function moveToDay() {
                         problem_hor.style.display = "inline";
                     }
                 }
-            } else if (typeof studySessionData === "undefined" || studySessionData.doneInstructions === "") {
+            } else if ((typeof studySessionData === "undefined" || studySessionData.doneInstructions === "") && (Number(todayDate) == 29)) {
                 platform.goToUrl("instructions/instructions.html");
                 studySessionData.doneInstructions = "stratIns";
             } else if (studySessionData.doneInstructions === "doneInstructions") {
