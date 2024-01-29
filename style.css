@@ -636,7 +636,7 @@
 
 #corrRed {
     position: fixed;
-    left: 28.5%;
+    left: 35%;
     top: 28%;
     width: 30%;
     height: 36%;
@@ -649,10 +649,10 @@
 
 #corrBlue {
     position: fixed;
-    left: 28.5%;
+    left: 35%;
     top: 28%;
-    width: 43%;
-    height: 34%;
+    width: 30%;
+    height: 36%;
     border: none;
     color: none;
     background-color: transparent;
