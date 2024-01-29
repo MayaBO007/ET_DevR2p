@@ -40,7 +40,7 @@ async function demo() {
                         document.getElementById("corrBlue").style.display = "none";
                         document.getElementById("airplane").style.display = "inline";
                         document.getElementById("airplane").style.animationPlayState = "running";
-                        document.getElementById("airplane").style.animationDuration = "3s"
+                        document.getElementById("airplane").style.animationDuration = "2s";
 
                         document.getElementById("blueButton").onclick = function () {
                             document.getElementById("rest").style.display = "inline";
