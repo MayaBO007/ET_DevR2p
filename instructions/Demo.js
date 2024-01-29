@@ -20,7 +20,7 @@ async function demo() {
             document.getElementById("redCar").style.display = "inline";
             document.getElementById("redCar").style.animationPlayState = "running";
             document.getElementById("redCar").style.animationDuration = "1.5s"
-            document.getElementById("redCar").style.animationIterationCount = "1";
+            // document.getElementById("redCar").style.animationIterationCount = "1";
             document.getElementById("redButton").onclick = function () {
                 document.getElementById("corrRed").style.display = "inline";
                 document.getElementById("redCar").style.animationPlayState = "paused";
