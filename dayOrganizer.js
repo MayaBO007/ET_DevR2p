@@ -13,7 +13,7 @@ function moveToDay() {
             const problem = document.getElementById("problem");
             const problem_hor = document.getElementById("problem_hor");
 
-            if (todayDate == "20") { //NO ZEROS IN FRONT OF SINGEL DIGITS
+            if (todayDate == "30") { //NO ZEROS IN FRONT OF SINGEL DIGITS
                 if (studySessionData.doneTest1 != "doneTest1") {
                     platform.goToUrl("days/twoTests/twoTests.html");
                 } else if ((studySessionData.doneTest1 === "doneTest1") && (studySessionData.doneTest2 != "doneTest2")) {
