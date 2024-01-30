@@ -163,9 +163,9 @@
 #loading {
 	background: lightblue;
 	border-radius: 50%;
-	width: 16%;
-	height: 10%;
-	left: 42.5%;
+	width: 12vh;
+	height: 12vh;
+	left: 40vw;
 	top: 65%;
 	display: none;
 	z-index: 999;
