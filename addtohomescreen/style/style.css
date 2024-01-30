@@ -165,7 +165,7 @@
 	border-radius: 50%;
 	width: 12vh;
 	height: 12vh;
-	left: 40vw;
+	left: 38vw;
 	top: 65%;
 	display: none;
 	z-index: 999;
@@ -515,10 +515,10 @@
 
 #moveToAppText {
 	position: absolute;
-	left: 13.5%;
-	top: 68%;
-	width: 73%;
-	height: 25%;
+	/* left: 13.5%; */
+	top: 70%;
+	width: 100%;
+	height: 20%;
 	border: none;
 	color: none;
 	background-color: transparent;
