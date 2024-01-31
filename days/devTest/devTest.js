@@ -39,7 +39,6 @@ async function startDevTest() {
         countingCars = 0;
         count = 0;
         function startIntervalDevtest() {
-            reset_gif();
             let randCount = randCountAirplane();
             document.getElementById("redButton").style.display = "inline";
             document.getElementById("blueButton").style.display = "inline";

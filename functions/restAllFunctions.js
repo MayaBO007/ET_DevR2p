@@ -22,11 +22,11 @@ function reset_airplane() { // sets the red car back to its start point
     document.getElementById('airplane').style.display = "none";
 };
 
-function reset_gif() { // sets the red car back to its start point
-    document.getElementById('secCountdown').style.display = "none";
-    document.getElementById('secCountdown').src = "";
-    document.getElementById('secCountdown').src = "../../pics/secondCountdown.gif"
-};
+// function reset_gif() { // sets the red car back to its start point
+//     document.getElementById('secCountdown').style.display = "none";
+//     document.getElementById('secCountdown').src = "";
+//     document.getElementById('secCountdown').src = "../../pics/secondCountdown.gif"
+// };
 
 // function reset_gifTen() { // sets the red car back to its start point
 //     document.getElementById('TenSecTimeout').style.display = "none";
