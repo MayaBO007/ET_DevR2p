@@ -15,9 +15,20 @@ function moveToDay() {
 
             if (todayDate == "30") { //NO ZEROS IN FRONT OF SINGEL DIGITS
                 platform.goToUrl("days/twoTests/twoTests.html");
-            } else if (((typeof studySessionData === "undefined" || studySessionData.doneInstructions === "")) && (Number(todayDate) == 1)) { //change to exp start date
-                platform.goToUrl("instructions/instructions.html");
-                studySessionData.doneInstructions = "stratIns";
+            } else if ((typeof studySessionData === "undefined" || studySessionData.doneInstructions === "")) {
+                if (Number(todayDate) == 1) { //change to exp start date
+                    platform.goToUrl("instructions/instructions.html");
+                    studySessionData.doneInstructions = "stratIns";
+                } else {
+                    studySessionData.diffDay = todayDate;
+                    platform.saveSession(studySessionData, true).then(() => {
+                        if (window.matchMedia("(orientation: landscape)").matches) {
+                            problem.style.display = "inline";
+                        } else {
+                            problem_hor.style.display = "inline";
+                        }
+                    });
+                }
             } else if (studySessionData.doneInstructions === "doneInstructions") {
                 if (
                     studySessionData.isDayDone === "done" &&
