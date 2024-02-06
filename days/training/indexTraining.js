@@ -45,6 +45,8 @@ function timeline() {
                         if (indexM == null || indexM == undefined || indexM < 1) {
                             daysMissedNum.push(1);
                             platform.saveSession(daysMissed);
+                            studySessionData.expDaysDate = updatedDates.yesterdayPlusOne;
+                            platform.saveSession(studySessionData, true);
                         } else {
                             document.getElementById("endOfGame").style.display = "inline";
                         }
