@@ -25,11 +25,20 @@ let saveAttemptDev = 0;
 // let startGame = null;
 let startClickDev = null;
 
+var redElement = document.getElementById("redButton");
+var blueElement = document.getElementById("blueButton");
+
 document.getElementById("redButton").addEventListener("click", function () {
-    allRedPressesDev.push(new Date().getTime() - milliseconds);
+    allRedPresses.push(new Date().getTime() - milliseconds);
 });
 document.getElementById("blueButton").addEventListener("click", function () {
-    allBluePressesDev.push(new Date().getTime() - milliseconds);
+    allBluePresses.push(new Date().getTime() - milliseconds);
+});
+redElement.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+blueElement.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
 });
 
 

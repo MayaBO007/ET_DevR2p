@@ -32,11 +32,20 @@ async function getStarNum() {
 };
 
 
+var redElement = document.getElementById("redButton");
+var blueElement = document.getElementById("blueButton");
+
 document.getElementById("redButton").addEventListener("click", function () {
-    allRedPressesStar.push(new Date().getTime() - milliseconds);
+    allRedPresses.push(new Date().getTime() - milliseconds);
 });
 document.getElementById("blueButton").addEventListener("click", function () {
-    allBluePressesStar.push(new Date().getTime() - milliseconds);
+    allBluePresses.push(new Date().getTime() - milliseconds);
+});
+redElement.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+blueElement.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
 });
 
 //let sessionIntervalStar = null;

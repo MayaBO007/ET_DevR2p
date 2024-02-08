@@ -15,13 +15,21 @@ const responsesTrainingData = {
     allChoices: allChoices
 };
 
+var redElement = document.getElementById("redButton");
+var blueElement = document.getElementById("blueButton");
+
 document.getElementById("redButton").addEventListener("click", function () {
     allRedPresses.push(new Date().getTime() - milliseconds);
 });
 document.getElementById("blueButton").addEventListener("click", function () {
     allBluePresses.push(new Date().getTime() - milliseconds);
 });
-
+redElement.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+blueElement.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
 
 let saveAttemptTraining = 0;
 let count = 0; // counter for iterations
