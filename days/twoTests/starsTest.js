@@ -32,15 +32,14 @@ async function getStarNum() {
 };
 
 
-var redElement = document.getElementById("redButton");
-var blueElement = document.getElementById("blueButton");
-
 document.getElementById("redButton").addEventListener("click", function () {
-    allRedPresses.push(new Date().getTime() - milliseconds);
+    allRedPressesStar.push(new Date().getTime() - milliseconds);
 });
 document.getElementById("blueButton").addEventListener("click", function () {
-    allBluePresses.push(new Date().getTime() - milliseconds);
+    allBluePressesStar.push(new Date().getTime() - milliseconds);
 });
+var redElement = document.getElementById("redButton");
+var blueElement = document.getElementById("blueButton");
 redElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
 });

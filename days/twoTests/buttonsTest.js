@@ -19,22 +19,20 @@ platform.saveSession(responsesButtons, true);
 timeoutCountButtons = 0;
 ButtonsNum = null;
 
-var redElement = document.getElementById("redButton");
-var blueElement = document.getElementById("blueButton");
-
 document.getElementById("redButton").addEventListener("click", function () {
-    allRedPresses.push(new Date().getTime() - milliseconds);
+    allRedPressesButtons.push(new Date().getTime() - milliseconds);
 });
 document.getElementById("blueButton").addEventListener("click", function () {
-    allBluePresses.push(new Date().getTime() - milliseconds);
+    allBluePressesButtons.push(new Date().getTime() - milliseconds);
 });
+var redElement = document.getElementById("redButton");
+var blueElement = document.getElementById("blueButton");
 redElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
 });
 blueElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
 });
-
 saveAttemptButtons = 0;
 //let sessionIntervalButtons = null;
 let endButtons = null;
