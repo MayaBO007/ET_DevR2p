@@ -30,6 +30,9 @@ redElement.addEventListener("contextmenu", function (event) {
 blueElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
 });
+document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
 
 let saveAttemptTraining = 0;
 let count = 0; // counter for iterations
